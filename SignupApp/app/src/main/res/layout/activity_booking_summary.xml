@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookingSummaryActivity"
+    android:background="@color/colorSecondaryPink"
+    android:scrollbars="none"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+
+    <LinearLayout
+        android:id="@+id/bslayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/bs_back_btn"
+                android:layout_width="54dp"
+                android:layout_height="41dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="image"
+                android:maxWidth="10dp"
+                android:maxHeight="10dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/bsTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Booking Summary"
+            android:textSize="30sp"
+            android:textColor="@color/colorDarkPink"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto_bold"/>
+
+        <TextView
+            android:id="@+id/bs_trip_dates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date: 8 May - 16 May"
+            android:textSize="25sp"
+            android:textColor="@color/colorDarkPink"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/oxygen"/>
+
+
+        <RelativeLayout
+            android:id="@+id/bs_rlayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/bs_start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Start Time: 12:00 am"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="18sp"
+                android:fontFamily="@font/oxygen"/>
+
+
+            <TextView
+                android:id="@+id/bs_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/oxygen"
+                android:text="End Time: 12:45 am"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/bs_trip_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location: Sillicon Valley"
+            android:textSize="25sp"
+            android:textColor="@color/colorDarkPink"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/oxygen"/>
+
+        <TextView
+            android:id="@+id/bs_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duration: 1day"
+            android:textSize="15sp"
+            android:textColor="@color/colorDarkPink"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="13dp"
+            android:fontFamily="@font/oxygen"/>
+
+        <LinearLayout
+            android:id="@+id/bslayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/bs_rlayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/oxygen">
+
+                <TextView
+                    android:id="@+id/bs_basefair_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Base Price"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/oxygen"/>
+
+                <TextView
+                    android:id="@+id/bs_basefair_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text= "Rs.2,280"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorDarkPink"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/oxygen"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bs_rlayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/bs_dpc_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delivery and Pickup Charge"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorDarkPink"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/oxygen"/>
+
+                <TextView
+                    android:id="@+id/bs_dpc_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text= "Rs.400"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorDarkPink"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/oxygen"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bs_rlayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/bs_rfd_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/oxygen"
+                    android:text="Refundable Security Deposit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/bs_rfd_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text= "Rs.2500"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorDarkPink"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/oxygen"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bs_rlayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/bs_total_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorDarkPink"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/oxygen"/>
+
+                <TextView
+                    android:id="@+id/bs_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text= "Rs.5,180"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorDarkPink"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/oxygen"/>
+
+                <TextView
+                    android:id="@+id/tandc_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="1dp"
+                    android:text="Inclusive of taxex and insurance"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/oxygen"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="30dp">
+
+            <CheckBox
+                android:id="@+id/tandcck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorDarkPink"
+                android:text="Terms and Conditions"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="15dp"
+                android:fontFamily="@font/oxygen"/>
+
+            <TextView
+                android:id="@+id/tandcline_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By clicking on \'Agree and continute\' you are\nagreeing to the terms and conditions of HireCar"
+                android:textSize="15dp"
+                android:textColor="@color/colorDarkPink"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/oxygen"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/payment_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorDarkPink"
+            android:text="Proceed to Pay Rs.5,180"
+            android:layout_marginTop="50dp"
+            android:padding="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/oxygen_bold"/>
+    </LinearLayout>
+
+</ScrollView>

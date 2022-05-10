@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">SignupApp</string>
+    <string name="signupname">Create Account</string>
+    <string name="signup_buttton">Sign Up</string>
+
+    <string name="signup_google">Continue with Google</string>
+    <string name="option">OR</string>
+
+    <string name="imagedesc">Image Description</string>
+
+    <string name="emailhint">Email Address</string>
+    <string name="fullnamehint">Full Name</string>
+    <string name="mbno">Mobile Number</string>
+    <string name="pwd">Password</string>
+    <string name="dlnumber">DL(Driving Licence) Number</string>
+    <string name="selectimgbtn">Select Image</string>
+
+    <string name="loginname">Login</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="login_button">Login</string>
+    <string name="dnhaa">Don\'t have an account?</string>
+    <string name="ahaa">Already have an account?</string>
+
+    <string name="comp_name">HireCar</string>
+    <string name="tagline">Book, Receive And Go</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_in_ahmedabd">Search in Ahmedabad</string>
+
+    <string name="selectloc">Select Location</string>
+
+</resources>

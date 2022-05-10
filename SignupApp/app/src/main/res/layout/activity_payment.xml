@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSecondaryPink"
+    tools:context=".PaymentActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="HireCar"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Book car rentable by the day "
+            android:textAlignment="inherit"
+            android:textColor="@color/colorDarkPink"
+            android:textSize="25sp"
+            android:textStyle="normal" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="Rs.5180"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="(incl. of all taxes) "
+            android:textAlignment="inherit"
+            android:textColor="@color/colorDarkPink"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/cancel_button"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:backgroundTint="@color/colorDarkPink"
+                android:textColor="@color/white"
+                android:text="Cancel"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="2dp"
+                android:fontFamily="@font/oxygen_bold"
+                style="@style/Widget.Material3.Button.Icon"/>
+
+            <Button
+                android:id="@+id/pay_button"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:backgroundTint="@color/colorDarkPink"
+                android:textColor="@color/white"
+                android:text="Pay"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="2dp"
+                android:fontFamily="@font/oxygen_bold"
+                style="@style/Widget.Material3.Button.Icon"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:gravity="left"
+            android:text=" * If you click Pay button then it will open the My Booking page"
+            android:textAlignment="inherit"
+            android:textColor="@color/colorDarkPink"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="12dp"
+            android:gravity="left"
+            android:text=" * If you click cancel button then it will be redirected to the Main page"
+            android:textAlignment="inherit"
+            android:textColor="@color/colorDarkPink"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aclonica</item>
+        <item>@font/muli</item>
+        <item>@font/muli_black</item>
+        <item>@font/nunito_sans_extrabold</item>
+        <item>@font/oxygen</item>
+        <item>@font/oxygen_bold</item>
+        <item>@font/roboto_bold</item>
+    </array>
+</resources>

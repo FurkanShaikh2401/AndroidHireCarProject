@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview_login"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homepage"
+    android:padding="10dp"
+    android:background="@color/colorSecondaryPink"
+    android:scrollbars="none"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/home_back_btn"
+                android:layout_width="54dp"
+                android:layout_height="41dp"
+                android:contentDescription="image"
+                android:maxWidth="10dp"
+                android:maxHeight="10dp"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <ImageView
+                android:id="@+id/profile_btn"
+                android:layout_width="54dp"
+                android:layout_height="41dp"
+                android:layout_alignParentEnd="true"
+                android:contentDescription="image"
+                android:maxWidth="10dp"
+                android:maxHeight="10dp"
+                android:src="@drawable/ic_profile" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/hc_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/comp_name"
+            android:textColor="@color/colorDarkPink"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:id="@+id/tagline_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Book car rentals by the day"
+            android:textSize="14sp"
+            android:fontFamily="@font/oxygen"
+            android:textColor="@color/colorDarkPink"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:padding="10dp">
+
+<!--            <Button-->
+<!--                android:layout_width="300dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:drawableLeft="@drawable/location"-->
+<!--                android:drawableTint="@color/white"-->
+<!--                android:text="@string/search_in_ahmedabd"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:fontFamily="@font/oxygen_bold"-->
+<!--                android:padding="20dp"-->
+<!--                style="@style/Widget.Material3.Button.IconButton"-->
+<!--                android:backgroundTint="@color/colorDarkPink"-->
+<!--                android:gravity="center" />-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/selectloc"
+                android:textColorHint="@color/colorDarkPink"
+                app:startIconDrawable="@drawable/ic_baseline_location_on_24"
+                app:endIconTint="@color/colorDarkPink"
+                app:hintTextColor="@color/colorDarkPink"
+                app:startIconTint="@color/colorDarkPink"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/colorDarkPink"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:fontFamily="@font/oxygen"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/selectdatetime"
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorDarkPink"
+                android:text="Select Date and Time"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+            <Button
+                android:id="@+id/find_cars_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Find Cars"
+                android:textSize="15sp"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:padding="15dp"
+                android:fontFamily="@font/oxygen_bold"
+                android:backgroundTint="@color/colorDarkPink"
+                android:layout_marginTop="0dp"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/date_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Date Selected"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorDarkPink"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/oxygen"/>
+            <LinearLayout
+                android:layout_width="400dp"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:id="@+id/starttime_txt"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="No Time Selected"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorDarkPink"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/oxygen"/>
+                <TextView
+                    android:id="@+id/endtime_txt"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="No Time Selected"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorDarkPink"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/oxygen"/>
+            </LinearLayout>
+        <TextView
+            android:id="@+id/avail_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Avaialable Cars"
+            android:textSize="25sp"
+            android:textColor="@color/colorDarkPink"
+            android:gravity="start"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/oxygen_bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView1"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+</ScrollView>

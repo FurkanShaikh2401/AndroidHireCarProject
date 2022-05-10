@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollview_login"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:padding="10dp"
+    android:background="@color/colorSecondaryPink"
+    android:scrollbars="none"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    android:transitionName="transition_login">
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/login_back_button"-->
+<!--            android:layout_width="54dp"-->
+<!--            android:layout_height="41dp"-->
+<!--            android:contentDescription="@string/imagedesc"-->
+<!--            android:maxWidth="10dp"-->
+<!--            android:maxHeight="10dp"-->
+<!--            android:padding="5dp"-->
+<!--            android:src="@drawable/arrow"-->
+<!--            android:layout_gravity="start"-->
+<!--            android:layout_marginStart="5dp"/>-->
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/oxygen_bold"
+            android:gravity="center"
+            android:text="@string/loginname"
+            android:textAllCaps="true"
+            android:textColor="@color/colorDarkPink"
+            android:textSize="40sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/emailhint"
+                android:textColorHint="@color/colorDarkPink"
+                app:startIconDrawable="@drawable/mail"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/colorDarkPink"
+                app:hintTextColor="@color/colorDarkPink"
+                app:startIconTint="@color/colorDarkPink"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/colorDarkPink"
+                android:layout_marginTop="15dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/oxygen"
+                    android:inputType="textEmailAddress"
+                    android:textSize="15dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pwd"
+                app:startIconDrawable="@drawable/padlock"
+                android:textColorHint="@color/colorDarkPink"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/colorDarkPink"
+                app:hintTextColor="@color/colorDarkPink"
+                app:startIconTint="@color/colorDarkPink"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/colorDarkPink"
+                android:layout_marginTop="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/oxygen"
+                    android:inputType="textPassword"
+                    android:maxLength="15"
+                    android:textSize="15dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+<!--                <CheckBox-->
+<!--                    style="@style/Widget.AppCompat.CompoundButton.CheckBox"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:buttonTint="@color/colorDarkPink"-->
+<!--                    android:fontFamily="@font/oxygen"-->
+<!--                    android:forceHasOverlappingRendering="true"-->
+<!--                    android:text="@string/remember_me"-->
+<!--                    android:textColor="@color/colorDarkPink" />-->
+
+                <Button
+                    android:id="@+id/fp_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="#00000000"
+                    android:fontFamily="@font/oxygen"
+                    android:text="@string/forget_password"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorDarkPink"
+                    android:letterSpacing="0"
+                    android:textSize="13dp"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/colorDarkPink"
+                android:elevation="5dp"
+                android:fontFamily="@font/oxygen_bold"
+                android:padding="20dp"
+                android:text="@string/login_button"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                style="@style/Widget.Material3.Button.TextButton"/>
+
+            <RelativeLayout
+                android:layout_width="310sp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/oxygen"
+                    android:forceHasOverlappingRendering="true"
+                    android:text="@string/dnhaa"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/colorDarkPink" />
+
+                <Button
+                    android:id="@+id/gotosu_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="#00000000"
+                    android:fontFamily="@font/oxygen_bold"
+                    android:forceHasOverlappingRendering="true"
+                    android:text="@string/signup_buttton"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorDarkPink" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
