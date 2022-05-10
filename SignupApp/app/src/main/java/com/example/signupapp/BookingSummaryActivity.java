@@ -12,6 +12,7 @@ import android.widget.ImageView;
 public class BookingSummaryActivity extends AppCompatActivity {
 
     ImageView back_to_findcar_btn;
+    Button payment_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,15 @@ public class BookingSummaryActivity extends AppCompatActivity {
             }
         });
 
+        // initializing and setting the onClickListener
+        payment_btn = findViewById(R.id.payment_btn);
+        payment_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BookingSummaryActivity.this, PaymentActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
