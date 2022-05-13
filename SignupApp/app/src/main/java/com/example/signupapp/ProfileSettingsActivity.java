@@ -20,9 +20,11 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         ProfileManageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProfileSettingsActivity.this, EditProfileActivity.class);
+                Intent intent = new Intent(ProfileSettingsActivity.this, change_password.class);
                 startActivity(intent);
             }
         });
+
+
     }
 }
