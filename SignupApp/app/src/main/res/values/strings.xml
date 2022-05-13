@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SignupApp</string>
+    <string name="app_name">HireCarApp</string>
     <string name="signupname">Create Account</string>
     <string name="signup_buttton">Sign Up</string>
 
