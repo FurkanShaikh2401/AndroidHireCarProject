@@ -1,4 +1,4 @@
-package com.example.signupapp;
+package com.example.HireCar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent3 = new Intent(getApplicationContext(), MainActivity.class);
+                intent3.setFlags(intent3.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent3);
             }
         });
@@ -38,7 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         forget_pwd_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
+                startActivity(intent);
             }
         });
 

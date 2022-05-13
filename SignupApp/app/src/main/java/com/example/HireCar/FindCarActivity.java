@@ -1,4 +1,4 @@
-package com.example.signupapp;
+package com.example.HireCar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +32,7 @@ public class FindCarActivity extends AppCompatActivity {
         Carrcv = (RecyclerView) findViewById(R.id.recyclerView2);
         Carrcv.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new CarAdapter(dataqueue());
+        adapter = new CarAdapter(dataqueue(),getApplicationContext());
         Carrcv.setAdapter(adapter);
 
 
@@ -78,12 +77,12 @@ public class FindCarActivity extends AppCompatActivity {
         holder.add(mobj1);
 
         Model mobj2 = new Model();
-        mobj2.setBrandTitle("Hyundai");
-        mobj2.setModelTitle("Grand i10");
-        mobj2.setdTitle1("diesel");
+        mobj2.setBrandTitle("Maruti");
+        mobj2.setModelTitle("Suzuki");
+        mobj2.setdTitle1("petrol");
         mobj2.setdTitle2("automatic");
         mobj2.setdTitle3("6 seat");
-        mobj2.setPriceTag("$1,944");
+        mobj2.setPriceTag("$2,250");
         mobj2.setImgId(R.drawable.car1);
         mobj2.setBookBtn("Book");
 

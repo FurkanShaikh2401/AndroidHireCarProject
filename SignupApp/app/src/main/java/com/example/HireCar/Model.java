@@ -1,4 +1,4 @@
-package com.example.signupapp;
+package com.example.HireCar;
 
 import android.widget.Button;
 import android.widget.ImageView;

@@ -1,4 +1,4 @@
-package com.example.signupapp;
+package com.example.HireCar;
 
 public class MyModel
 {

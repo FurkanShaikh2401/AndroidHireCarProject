@@ -1,4 +1,4 @@
-package com.example.signupapp;
+package com.example.HireCar;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +29,7 @@ public class myadapter extends RecyclerView.Adapter<myviewholder>
     @Override
     public void onBindViewHolder(@NonNull myviewholder holder, int position)
     {
-        holder.order_title.setText(data.get(position).getOrder_title());
+//        holder.order_title.setText(data.get(position).getOrder_title());
         holder.order_number.setText(data.get(position).getOrder_number());
         holder.model_number.setText(data.get(position).getModel_number());
         holder.pick_header.setText(data.get(position).getPick_header());

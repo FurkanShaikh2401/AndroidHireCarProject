@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:focusableInTouchMode="true">
 
 <!--        <ImageView-->
 <!--            android:id="@+id/login_back_button"-->
@@ -42,7 +43,7 @@
             android:textAllCaps="true"
             android:textColor="@color/colorDarkPink"
             android:textSize="40sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/layout2"

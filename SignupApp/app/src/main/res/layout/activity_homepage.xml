@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:focusableInTouchMode="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -55,16 +56,25 @@
             android:textSize="50sp"
             android:textStyle="bold"
             android:letterSpacing="0.05"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Self Drive Car)"
+            android:textSize="15dp"
+            android:textColor="@color/colorDarkPink"
+            android:fontFamily="@font/oxygen"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/tagline_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Book car rentals by the day"
-            android:textSize="14sp"
+            android:text="Book car by the day"
+            android:textSize="15sp"
             android:fontFamily="@font/oxygen"
             android:textColor="@color/colorDarkPink"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_marginTop="5dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

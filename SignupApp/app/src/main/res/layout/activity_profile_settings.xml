@@ -123,6 +123,7 @@
                     android:fontFamily="@font/oxygen_bold"/>
 
                 <ImageView
+                    android:id="@+id/navigate_profile"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
@@ -144,11 +145,12 @@
                     android:contentDescription="@string/imagedesc"
                     android:src="@drawable/ic_mybooking" />
                 <TextView
+                    android:id="@+id/mybookings"
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="My Booking  "
+                    android:text="My Booking"
                     android:textAlignment="inherit"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -159,6 +161,7 @@
                     android:fontFamily="@font/oxygen_bold"/>
 
                 <ImageView
+                    android:id="@+id/navigate_mybooking"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"

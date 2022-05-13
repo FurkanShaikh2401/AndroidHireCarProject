@@ -1,4 +1,4 @@
-package com.example.signupapp;
+package com.example.HireCar;
 
 import android.os.Bundle;
 
@@ -15,7 +15,7 @@ public class MyBookingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mybooking);
-        setTitle("Recycler and card view demo");
+        //setTitle("Recycler and card view demo");
 
         rcv=(RecyclerView)findViewById(R.id.myrecyclerview2);
         rcv.setLayoutManager(new LinearLayoutManager(this));

@@ -59,7 +59,6 @@ public class homepage extends AppCompatActivity {
 
         find_cars_btn = findViewById(R.id.find_cars_btn);
         backtologin = findViewById(R.id.home_back_btn);
-        ProfileBtn = findViewById(R.id.profile_btn);
         selectdatetimebtn = findViewById(R.id.selectdatetime);
         date_txt = findViewById(R.id.date_txt);
         start_time_txt = findViewById(R.id.starttime_txt);
@@ -90,15 +89,6 @@ public class homepage extends AppCompatActivity {
             }
         });
 
-        // Profile Activity Setting
-        ProfileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(homepage.this, ProfileSettingsActivity.class);
-                startActivity(intent);
-            }
-        });
-
         // back to login screen
         find_cars_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +102,14 @@ public class homepage extends AppCompatActivity {
             }
         });
 
-
+        // Profile Activity Setting
+        ProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homepage.this, ProfileSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
         setDatePicker();
     }
 
