@@ -1,4 +1,4 @@
-package com.example.signupapp;
+package com.example.HireCar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,8 +21,8 @@ import android.widget.Toast;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
-import com.google.android.material.textfield.TextInputEditText;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -51,18 +52,21 @@ public class homepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
-        Carrcv = (RecyclerView) findViewById(R.id.recyclerView1);
-        Carrcv.setLayoutManager(new LinearLayoutManager(this));
-
-        adapter = new CarAdapter(dataqueue());
-        Carrcv.setAdapter(adapter);
-
+        // initializing common fields
         find_cars_btn = findViewById(R.id.find_cars_btn);
         backtologin = findViewById(R.id.home_back_btn);
         selectdatetimebtn = findViewById(R.id.selectdatetime);
         date_txt = findViewById(R.id.date_txt);
         start_time_txt = findViewById(R.id.starttime_txt);
         end_time_txt = findViewById(R.id.endtime_txt);
+        ProfileBtn = findViewById(R.id.profile_btn);
+
+        // recyclerview and adapter initializing
+        Carrcv = (RecyclerView) findViewById(R.id.recyclerView1);
+        Carrcv.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter = new CarAdapter(dataqueue(), getApplicationContext());
+        Carrcv.setAdapter(adapter);
 
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
 
@@ -80,6 +84,13 @@ public class homepage extends AppCompatActivity {
         });
 
 
+        // creating the Calendar instance
+        Calendar calendar = Calendar.getInstance();
+
+        // set the default system date for today's date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String date = dateFormat.format(calendar.getTime());
+        Log.i("todaydate", String.valueOf(date));
 
         // back to login screen
         backtologin.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +99,18 @@ public class homepage extends AppCompatActivity {
                 startActivity(new Intent(homepage.this, LoginActivity.class));
             }
         });
+
+
+        // Profile Activity Setting
+        ProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homepage.this, ProfileSettingsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         // back to login screen
         find_cars_btn.setOnClickListener(new View.OnClickListener() {
@@ -102,14 +125,6 @@ public class homepage extends AppCompatActivity {
             }
         });
 
-        // Profile Activity Setting
-        ProfileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(homepage.this, ProfileSettingsActivity.class);
-                startActivity(intent);
-            }
-        });
         setDatePicker();
     }
 
@@ -131,12 +146,12 @@ public class homepage extends AppCompatActivity {
         holder.add(mobj1);
 
         Model mobj2 = new Model();
-        mobj2.setBrandTitle("Hyundai");
-        mobj2.setModelTitle("Grand i10");
-        mobj2.setdTitle1("diesel");
+        mobj2.setBrandTitle("Maruti");
+        mobj2.setModelTitle("Suzuki");
+        mobj2.setdTitle1("petrol");
         mobj2.setdTitle2("automatic");
         mobj2.setdTitle3("6 seat");
-        mobj2.setPriceTag("$1,944");
+        mobj2.setPriceTag("$2,250");
         mobj2.setImgId(R.drawable.car1);
         mobj2.setBookBtn("Book");
 
@@ -250,9 +265,12 @@ public class homepage extends AppCompatActivity {
     }
 
     private void setDatePicker(){
+
         // material date picker
         MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.dateRangePicker();
         builder.setTitleText("SELECT DATE");
+
+
         final MaterialDatePicker materialDatePicker = builder.build();
 
         // datetime picker
@@ -267,6 +285,12 @@ public class homepage extends AppCompatActivity {
             @Override
             public void onPositiveButtonClick(Object selection) {
                 date_txt.setText(materialDatePicker.getHeaderText());
+//                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//                String selecteddate = dateFormat.format(materialDatePicker.getHeaderText());
+                String list[] = materialDatePicker.getHeaderText().split("-");
+                for(int i=0; i<list.length; i++){
+                    Log.i("mydate: ", list[i]);
+                }
                 //Toast.makeText(homepage.this, "date: "+materialDatePicker.getHeaderText(), Toast.LENGTH_SHORT);
                 setTimePicker();
             }
@@ -298,7 +322,7 @@ public class homepage extends AppCompatActivity {
         );
         // display previous selected time
         timePickerDialog.updateTime(hour, minute);
-        timePickerDialog.setMessage("Start Time");
+        timePickerDialog.setMessage("Pickup Time");
         // show dialog
         timePickerDialog.show();
     }
@@ -326,7 +350,7 @@ public class homepage extends AppCompatActivity {
         );
         // display previous selected time
         timePickerDialog.updateTime(hour, minute);
-        timePickerDialog.setMessage("End Time");
+        timePickerDialog.setMessage("Drop Time");
         // show dialog
         timePickerDialog.show();
     }

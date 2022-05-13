@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:gravity="center"
         >
         <TextView
             android:layout_width="match_parent"
@@ -22,6 +23,14 @@
             android:textColor="@color/black"
             android:textSize="40sp"
             android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(Self Drive Car)"
+            android:textSize="15dp"
+            android:textColor="@color/colorDarkPink"
+            android:fontFamily="@font/oxygen"
+            android:gravity="center"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,12 +71,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:padding="10dp"
+            android:gravity="center">
             <Button
                 android:id="@+id/cancel_button"
                 android:layout_width="150sp"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
                 android:backgroundTint="@color/colorDarkPink"
                 android:textColor="@color/white"
                 android:text="Cancel"
@@ -76,13 +87,13 @@
                 android:textStyle="bold"
                 android:padding="2dp"
                 android:fontFamily="@font/oxygen_bold"
-                style="@style/Widget.Material3.Button.Icon"/>
+                style="@style/Widget.Material3.Button.Icon"
+                android:layout_marginRight="30dp"/>
 
             <Button
                 android:id="@+id/pay_button"
                 android:layout_width="150sp"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
                 android:backgroundTint="@color/colorDarkPink"
                 android:textColor="@color/white"
                 android:text="Pay"
