@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser()!=null){
             Intent intent1 = new Intent(getApplicationContext(),homepage.class);
-            intent1.setFlags(intent1.FLAG_ACTIVITY_CLEAR_TOP);
+            intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent1);
         }
         setContentView(R.layout.activity_login);

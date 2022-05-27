@@ -73,7 +73,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                 mAuth=FirebaseAuth.getInstance();
                 mAuth.signOut();
                 Intent intent_signout=new Intent(ProfileSettingsActivity.this,LoginActivity.class);
-                intent_signout.setFlags(intent_signout.FLAG_ACTIVITY_CLEAR_TOP);
+                intent_signout.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent_signout);
             }
         });
