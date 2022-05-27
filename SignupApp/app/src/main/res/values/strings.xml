@@ -28,6 +28,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_in_ahmedabd">Search in Ahmedabad</string>
 
-    <string name="selectloc">Select Location</string>
+    <string name="selectploc">Select Pickup Location</string>
+    <string name="selectdloc">Select Drop Location</string>
 
 </resources>

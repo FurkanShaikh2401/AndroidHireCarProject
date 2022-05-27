@@ -25,23 +25,54 @@
                 android:id="@+id/fc_back_btn"
                 android:layout_width="54dp"
                 android:layout_height="41dp"
+                android:layout_alignParentStart="true"
                 android:contentDescription="image"
                 android:maxWidth="10dp"
                 android:maxHeight="10dp"
-                android:src="@drawable/ic_baseline_arrow_back_24"/>
+                android:src="@drawable/ic_baseline_arrow_back_24" />
 
-            <TextView
-                android:id="@+id/LocationText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:id="@+id/header_layout"
+                android:layout_width="333dp"
+                android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:layout_marginRight="100dp"
-                android:fontFamily="@font/oxygen"
-                android:gravity="center"
-                android:text="New York"
-                android:textColor="@color/colorDarkPink"
-                android:textSize="20sp"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@+id/fc_back_btn"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/PickupLoc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/oxygen"
+                    android:gravity="start"
+                    android:layout_gravity="center"
+                    android:text="Sillicon Valley"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:id="@+id/hr_line"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="image"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_baseline_horizontal_rule_24"
+                    />
+                <TextView
+                    android:id="@+id/DropLoc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/oxygen"
+                    android:gravity="end"
+                    android:text="Sillicon Valley"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
 
         </RelativeLayout>
 

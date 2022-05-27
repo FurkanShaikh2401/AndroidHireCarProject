@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,9 +15,10 @@ import java.util.ArrayList;
 
 public class FindCarActivity extends AppCompatActivity {
 
-    String location_name, trip_dates, start_time, end_time;
+    String pickuploc, droploc, start_date, end_date, start_time, end_time;
 
-    TextView setLocationTextView;
+    TextView PickupLocation, DropLocation;
+    LinearLayout headerLayout;
 
     //Recyclerview object and CarAdapter object
     RecyclerView Carrcv;
@@ -36,28 +38,45 @@ public class FindCarActivity extends AppCompatActivity {
         Carrcv.setAdapter(adapter);
 
 
-        setLocationTextView = findViewById(R.id.LocationText);
+        PickupLocation = findViewById(R.id.PickupLoc);
+        DropLocation = findViewById(R.id.DropLoc);
 
-        setLocationTextView.setOnClickListener(new View.OnClickListener() {
+
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {x
+            pickuploc =  getIntent().getStringExtra("pickuplocation");
+            droploc =  getIntent().getStringExtra("droplocation");
+            start_date =  getIntent().getStringExtra("startdate");
+            end_date =  getIntent().getStringExtra("enddate");
+            start_time = getIntent().getStringExtra("startingtime");
+            end_time =  getIntent().getStringExtra("endingtime");
+            Toast.makeText(getApplicationContext(), "PickupLocation: " + pickuploc, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "DropLocation: " + droploc, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "StartDate: " + start_date, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "EndDate: " + end_date, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Starting Time: " + start_time, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Ending Time: " + end_time, Toast.LENGTH_SHORT).show();
+//        }
+
+
+        DropLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FindCarActivity.this, BookingSummaryActivity.class));
+                Intent intent = new Intent(FindCarActivity.this, BookingSummaryActivity.class);
+                intent.putExtra("pickuplocation", pickuploc);
+                intent.putExtra("droplocation", droploc);
+                intent.putExtra("startdate", start_date);
+                intent.putExtra("enddate", end_date);
+                intent.putExtra("startingtime", start_time);
+                intent.putExtra("endingtime", end_time);
+                startActivity(intent);
             }
         });
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            location_name = extras.getString("location");
-            trip_dates = extras.getString("trip_dates");
-            start_time = extras.getString("startingtime");
-            end_time = extras.getString("endingtime");
-            Toast.makeText(getApplicationContext(), "Location: " + location_name, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), "Dates: " + trip_dates, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), "Starting Time: " + start_time, Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(), "Ending Time: " + end_time, Toast.LENGTH_SHORT).show();
-        }
+        PickupLocation.setText(pickuploc);
+        DropLocation.setText(droploc);
 
-        setLocationTextView.setText(location_name);
+//        setLocationTextView.setText(location_name);
     }
 
     // Model For RecyclerView

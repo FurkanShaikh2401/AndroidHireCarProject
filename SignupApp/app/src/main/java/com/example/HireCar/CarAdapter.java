@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,6 +55,15 @@ public class CarAdapter extends RecyclerView.Adapter<CarViewHolder> {
                 intent.putExtra("TransmissionTitle", temp.getdTitle2());
                 intent.putExtra("CapacityTitle", temp.getdTitle3());
                 intent.putExtra("PriceTitle", temp.getPriceTag());
+
+                Toast.makeText(context, "pickup"+intent.getExtras().getString("pickuplocation"), Toast.LENGTH_SHORT).show();
+
+                intent.putExtra("PickUpLoc", intent.getExtras().getString("pickuplocation"));
+                intent.putExtra("DropLoc", intent.getExtras().getString("droplocation"));
+                intent.putExtra("Start_Date", intent.getExtras().getString("startdate"));
+                intent.putExtra("End_Date", intent.getExtras().getString("enddate"));
+                intent.putExtra("Start_Time", intent.getExtras().getString("startingtime"));
+                intent.putExtra("End_Time", intent.getExtras().getString("endingtime"));
                 //intent.putExtra("CarImage", temp.getImgId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);

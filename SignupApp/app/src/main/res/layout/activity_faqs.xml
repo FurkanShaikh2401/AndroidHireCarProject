@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorSecondaryPink"
     tools:context=".faqs">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,6 +36,8 @@
                 android:textStyle="bold"/>
 
         </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +60,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="117dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@color/white"
             android:orientation="vertical">
@@ -81,9 +84,45 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/oxygen"
                 android:gravity="left"
-                android:text=" Booking with us is quick and easy. You can make a
- booking through our aap (android or IOS ). Website or by giving us a call  at
-+91-9250035555. Just select  your city, "
+                android:text=" Booking with us is quick and easy.
+You can make a booking through our app (android or iOS), website or by giving us a call at +91-9250035555.
+Just select your city, date and time of your trip, key in your location and choose the type of car you want. Then enter your payment details, confirm payment and you are ready to go! "
+                android:textColor="@color/colorDarkPink"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="left"
+                android:text="What if I need to modify or cancel my booking?"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                android:fontFamily="@font/oxygen"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"
+                android:gravity="left"
+                android:text="You can modify or cancel your booking through either our app, website or by calling us.
+ Our ability to modify/cancel the booking and the relevant charges depend upon your time of informing us and availability of cars.
+ Please refer to our Fee policy for more details on the allowable modifications and applicable charges."
                 android:textColor="@color/colorDarkPink"
                 android:textSize="16sp"
                 android:textStyle="normal" />
@@ -93,7 +132,63 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="117dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/oxygen"
+                android:gravity="left"
+                android:text="What happens if I return the car late ?"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="25sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"
+                android:gravity="left"
+                android:text="We understand that sometimes there can be last minute changes in your plans, and we will try our best to accommodate them.
+But in situations where it can cause trouble to the next user (ie, the person whose booking starts after your ends), we cannot allow late returns.
+Please refer to our Fee policy for more details on late fees and extension charges"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorDarkPink"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="left"
+                android:text="Your Trip:-"
+                android:textAlignment="inherit"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="normal"
+                android:fontFamily="@font/oxygen"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="@color/white"
             android:orientation="vertical">
@@ -103,7 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="left"
-                android:text="How Do I Make A Booking ?"
+                android:text="What documents do I need to take the delivery of my hirecar car?"
                 android:textAlignment="inherit"
                 android:textColor="@color/colorDarkPink"
                 android:textSize="25sp"
@@ -117,9 +212,46 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/oxygen"
                 android:gravity="left"
-                android:text=" Booking with us is quick and easy. You can make a
- booking through our aap (android or IOS ). Website or by giving us a call  at
-+91-9250035555."
+                android:text=" While taking the delivery of your car, you will need to show your ORIGINAL Driving License and ID proof (same as the ones whose details you provided while making the booking).
+These documents will be verified for validity. In case these documents are unavailable/invalid/unverifiable, your booking will be subject to cancellation.
+Revv's decision in this matter will be final and binding. Please note that driving license printed on A4 sheet of paper (original or otherwise) will not be considered as a valid document. "
+                android:textColor="@color/colorDarkPink"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="left"
+                android:text="How do I check-in for my booking?"
+                android:textAlignment="inherit"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="25sp"
+                android:textStyle="normal"
+                android:fontFamily="@font/oxygen"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"
+                android:gravity="left"
+                android:text="Our delivery executive will deliver the car to your doorstep.
+Before he hands-over the car to you, he will share with you a pre-filled checklist that summarises the car's condition at that time.
+Please confirm the details in the checklist, sign it and you are good to go.
+In case any information in the checklist is not correct, please notify the delivery executive or call us.."
                 android:textColor="@color/colorDarkPink"
                 android:textSize="16sp"
                 android:textStyle="normal" />

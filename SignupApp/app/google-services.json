@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "321433034620",
+    "project_id": "hirecar-test",
+    "storage_bucket": "hirecar-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321433034620:android:3696fdb008b29fb4d6cef9",
+        "android_client_info": {
+          "package_name": "com.example.HireCar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321433034620-s96fil09cvm8i1mb86sgatpqbesbugil.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.HireCar",
+            "certificate_hash": "bb5cc4314207f033764732c777e18bc90c061f91"
+          }
+        },
+        {
+          "client_id": "321433034620-b26d6gr9drndnqsmcgd5ragg032386oq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANAuhau3U5-g6G8W__PKogtnvHEnU5JcE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321433034620-b26d6gr9drndnqsmcgd5ragg032386oq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

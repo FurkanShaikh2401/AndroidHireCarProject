@@ -40,60 +40,189 @@
             android:textAlignment="center"
             android:fontFamily="@font/roboto_bold"/>
 
-        <TextView
-            android:id="@+id/bs_trip_dates"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date: 8 May - 16 May"
-            android:textSize="25sp"
-            android:textColor="@color/colorDarkPink"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/oxygen"/>
+<!--        <TextView-->
+<!--            android:id="@+id/bs_trip_dates"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Date: 8 May - 16 May"-->
+<!--            android:textSize="25sp"-->
+<!--            android:textColor="@color/colorDarkPink"-->
+<!--            android:gravity="center"-->
+<!--            android:textAlignment="center"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:fontFamily="@font/oxygen"/>-->
 
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/bs_rlayout1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:foregroundGravity="center"-->
+<!--            android:layout_marginTop="20dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/bs_start_time"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:fontFamily="@font/oxygen"-->
+<!--                android:text="Start Time: 12:00 am"-->
+<!--                android:textColor="@color/colorDarkPink"-->
+<!--                android:textSize="18sp" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/bs_end_time"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:fontFamily="@font/oxygen"-->
+<!--                android:text="End Time: 12:45 am"-->
+<!--                android:textColor="@color/colorDarkPink"-->
+<!--                android:textSize="18sp" />-->
+<!--        </RelativeLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/bs_trip_location"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Location: Sillicon Valley"-->
+<!--            android:textSize="25sp"-->
+<!--            android:textColor="@color/colorDarkPink"-->
+<!--            android:gravity="center"-->
+<!--            android:textAlignment="center"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:fontFamily="@font/oxygen"/>-->
 
         <RelativeLayout
-            android:id="@+id/bs_rlayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="10dp">
 
             <TextView
-                android:id="@+id/bs_start_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:fontFamily="@font/oxygen"
-                android:text="Start Time: 12:00 am"
+                android:gravity="center"
+                android:text="Start DateTime"
                 android:textColor="@color/colorDarkPink"
-                android:textSize="18sp" />
-
+                android:textSize="18sp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"/>
 
             <TextView
-                android:id="@+id/bs_end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End DateTime"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:fontFamily="@font/oxygen"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/trip_dates_layout"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/startdate_txt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="17-05-2022"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"/>
+            <TextView
+                android:id="@+id/enddate_txt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="20-05-2022"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/trip_times_layout"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/starttime_txt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="07:00 AM"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"/>
+            <TextView
+                android:id="@+id/endtime_txt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="07:00 PM"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/header_layout"
+            android:layout_width="333dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@+id/fc_back_btn"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/PickupLoc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
                 android:fontFamily="@font/oxygen"
-                android:text="End Time: 12:45 am"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="Sillicon Valley"
                 android:textColor="@color/colorDarkPink"
                 android:textSize="18sp" />
-        </RelativeLayout>
+            <ImageView
+                android:id="@+id/hr_line"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="image"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_horizontal_rule_24"
+                />
+            <TextView
+                android:id="@+id/DropLoc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:fontFamily="@font/oxygen"
+                android:gravity="center"
+                android:text="Sillicon Valley"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/bs_trip_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Location: Sillicon Valley"
-            android:textSize="25sp"
-            android:textColor="@color/colorDarkPink"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/oxygen"/>
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/bs_duration"

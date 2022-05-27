@@ -198,6 +198,7 @@
                     android:fontFamily="@font/oxygen_bold"/>
 
                 <ImageView
+                    android:id="@+id/navigate_faq"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
@@ -234,6 +235,7 @@
                     android:fontFamily="@font/oxygen_bold"/>
 
                 <ImageView
+                    android:id="@+id/navigate_policy"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
@@ -271,6 +273,7 @@
                     android:fontFamily="@font/oxygen_bold"/>
 
                 <ImageView
+                    android:id="@+id/navigate_cp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"
@@ -309,6 +312,7 @@
                     android:fontFamily="@font/oxygen_bold"/>
 
                 <ImageView
+                    android:id="@+id/navigate_logout"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="right"

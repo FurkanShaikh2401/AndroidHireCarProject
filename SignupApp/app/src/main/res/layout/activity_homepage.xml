@@ -51,11 +51,12 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
+            android:letterSpacing="0.05"
             android:text="@string/comp_name"
             android:textColor="@color/colorDarkPink"
             android:textSize="50sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.05"/>
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,7 +102,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/selectloc"
+                android:hint="@string/selectploc"
                 android:textColorHint="@color/colorDarkPink"
                 app:startIconDrawable="@drawable/ic_baseline_location_on_24"
                 app:endIconTint="@color/colorDarkPink"
@@ -120,21 +121,63 @@
                     android:textSize="16sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/selectdloc"
+                android:textColorHint="@color/colorDarkPink"
+                app:startIconDrawable="@drawable/ic_baseline_location_on_24"
+                app:endIconTint="@color/colorDarkPink"
+                app:hintTextColor="@color/colorDarkPink"
+                app:startIconTint="@color/colorDarkPink"
+                app:boxStrokeWidthFocused="2dp"
+                app:boxStrokeColor="@color/colorDarkPink"
+                android:layout_marginTop="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_txt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:fontFamily="@font/oxygen"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
         <RelativeLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:gravity="center">
 
+<!--            <Button-->
+<!--                android:id="@+id/selectdatetime"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="67dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:backgroundTint="@color/colorDarkPink"-->
+<!--                android:text="Select Date and Time"-->
+<!--                android:textColor="@color/white" />-->
             <Button
-                android:id="@+id/selectdatetime"
-                android:layout_width="match_parent"
+                android:id="@+id/selectdatetime1"
+                android:layout_width="wrap_content"
                 android:layout_height="67dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/colorDarkPink"
-                android:text="Select Date and Time"
+                android:text="Start Date time"
                 android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/selectdatetime2"
+                android:layout_width="wrap_content"
+                android:layout_height="67dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorDarkPink"
+                android:text="End Date time"
+                android:textColor="@color/white" />
+
         </RelativeLayout>
 
             <Button
@@ -148,45 +191,89 @@
                 android:padding="15dp"
                 android:fontFamily="@font/oxygen_bold"
                 android:backgroundTint="@color/colorDarkPink"
-                android:layout_marginTop="0dp"/>
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
-        <TextView
-            android:id="@+id/date_txt"
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No Date Selected"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorDarkPink"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/oxygen"/>
-            <LinearLayout
-                android:layout_width="400dp"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp">
-                <TextView
-                    android:id="@+id/starttime_txt"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="No Time Selected"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorDarkPink"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/oxygen"/>
-                <TextView
-                    android:id="@+id/endtime_txt"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:text="No Time Selected"
-                    android:textSize="18sp"
-                    android:textColor="@color/colorDarkPink"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/oxygen"/>
-            </LinearLayout>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/oxygen"
+                android:gravity="center"
+                android:text="Start DateTime"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End DateTime"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:fontFamily="@font/oxygen"
+                android:layout_alignParentEnd="true"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/trip_dates_layout"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/startdate_txt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="No Date Selected"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"/>
+            <TextView
+                android:id="@+id/enddate_txt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="No Date Selected"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/trip_times_layout"
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/starttime_txt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="No Time Selected"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"/>
+            <TextView
+                android:id="@+id/endtime_txt"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="No Time Selected"
+                android:textSize="18sp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/oxygen"/>
+        </LinearLayout>
         <TextView
             android:id="@+id/avail_txt"
             android:layout_width="match_parent"

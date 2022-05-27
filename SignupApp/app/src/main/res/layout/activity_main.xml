@@ -67,6 +67,7 @@
                     app:helperText="*Required">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/LoginEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/oxygen"
@@ -93,6 +94,7 @@
                     app:helperText="*Required">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/LoginName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/oxygen"
@@ -102,7 +104,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_mobileno"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -151,12 +152,13 @@
                     app:helperText="*Required">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/LoginPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/oxygen"
                         android:inputType="textPassword"
                         android:maxLength="15"
-                        android:textSize="15dp"/>
+                        android:textSize="15dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,6 +183,7 @@
                     app:helperText="*Required">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/LoginDLnumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/oxygen"
@@ -194,34 +197,35 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:helperText="Press button to Select Driving Licence">
+                    app:helperText="Press Image View to Select Driving Licence">
 
                     <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/dlimage"
+                        android:id="@+id/imageView"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:tooltipText="Select Driving Licence Image"
                         android:layout_marginTop="0dp"
+                        android:layout_weight="1"
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
+                        android:tooltipText="Select Driving Licence Image"
                         app:shapeAppearance="@style/CornerCut"
-                        android:layout_weight="1"/>
+                        app:srcCompat="@drawable/ic_upload_24" />
 
-                    <Button
-                        android:id="@+id/img_select_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:backgroundTint="@color/colorDarkPink"
-                        android:elevation="5dp"
-                        android:fontFamily="@font/oxygen_bold"
-                        android:padding="20dp"
-                        android:text="@string/selectimgbtn"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textAllCaps="true"
-                        style="@style/Widget.Material3.Button.TextButton"/>
+<!--                    <Button-->
+<!--                        android:id="@+id/img_select_button"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:backgroundTint="@color/colorDarkPink"-->
+<!--                        android:elevation="5dp"-->
+<!--                        android:fontFamily="@font/oxygen_bold"-->
+<!--                        android:padding="20dp"-->
+<!--                        android:text="@string/selectimgbtn"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textAllCaps="true"-->
+<!--                        style="@style/Widget.Material3.Button.TextButton"/>-->
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -261,15 +265,15 @@
                     android:id="@+id/gotologin_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:background="#00000000"
+                    android:fontFamily="@font/oxygen"
+                    android:forceHasOverlappingRendering="true"
                     android:text="@string/login_button"
+                    android:textAlignment="textStart"
                     android:textAllCaps="false"
                     android:textColor="@color/colorDarkPink"
-                    android:fontFamily="@font/oxygen"
-                    android:textStyle="bold"
-                    android:forceHasOverlappingRendering="true"
-                    android:layout_alignParentEnd="true"
-                    android:textAlignment="textStart"/>
+                    android:textStyle="bold" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
