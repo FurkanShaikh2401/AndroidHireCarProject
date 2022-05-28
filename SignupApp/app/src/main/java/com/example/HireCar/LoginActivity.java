@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 Intent intent_verify = new Intent(getApplicationContext(),verify_login.class);
-                intent_verify.putExtra("phone_number","+91"+L_mobile.getText().toString());
+                intent_verify.putExtra("phone_number",L_mobile.getText().toString());
 //                intent_verify.putExtra("identify_data2","2");
                 startActivity(intent_verify);
 //                SignInwithNumber(L_mobile.getText().toString());

@@ -96,11 +96,6 @@ public class verify_otp extends AppCompatActivity {
 
         
 
-        String PhoneNumber=getIntent().getStringExtra("phone_number");
-        L_mobile.setText(PhoneNumber);
-//        setupOtpInputs();
-//        setVerificationcode(PhoneNumber);
-//        Login_method();
 
         
 
