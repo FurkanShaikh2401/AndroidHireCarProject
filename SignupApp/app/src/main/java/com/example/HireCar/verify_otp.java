@@ -66,7 +66,7 @@ public class verify_otp extends AppCompatActivity {
 
         L_mobile = findViewById(R.id.textMobile);
         L_mobile.setText(String.format(
-                "+91", getIntent().getStringExtra("mobile")
+                "+91"+getIntent().getStringExtra("mobile")
         ));
 
 
@@ -86,7 +86,7 @@ public class verify_otp extends AppCompatActivity {
 
         TextView textMobile = findViewById(R.id.textMobile);
         textMobile.setText(String.format(
-                "+91-%s", getIntent().getStringExtra("mobile")
+                "+91"+ getIntent().getStringExtra("mobile")
         ));
             setupOtpInputs();
             verify_for_register();
@@ -107,7 +107,7 @@ public class verify_otp extends AppCompatActivity {
              @Override
              public void onClick(View view) {
                  PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                         L_mobile.getText().toString(),
+                         "+91"+L_mobile.getText().toString(),
                          60,
                          TimeUnit.SECONDS,
                          verify_otp.this,

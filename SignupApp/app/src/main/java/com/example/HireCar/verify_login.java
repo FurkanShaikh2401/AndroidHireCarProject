@@ -58,10 +58,11 @@ public class verify_login extends AppCompatActivity {
 
         L_mobile = findViewById(R.id.textMobile);
 
-        String PhoneNumber = getIntent().getStringExtra("phone_number");
+        String PhoneNumber = "+91"+getIntent().getStringExtra("phone_number");
+
 
         L_mobile.setText(String.format(
-                "+91-%s", getIntent().getStringExtra("phone_number")
+                "+91"+getIntent().getStringExtra("phone_number")
         ));
         mAuth=FirebaseAuth.getInstance();
         SendVerificationCode(PhoneNumber);
