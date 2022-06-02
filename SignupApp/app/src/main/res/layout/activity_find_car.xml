@@ -32,7 +32,7 @@
                 android:src="@drawable/ic_baseline_arrow_back_24" />
 
             <LinearLayout
-                android:id="@+id/header_layout"
+                android:id="@+id/header_layout1"
                 android:layout_width="333dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
@@ -42,7 +42,7 @@
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/PickupLoc"
+                    android:id="@+id/PickupLoc1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -51,9 +51,9 @@
                     android:layout_gravity="center"
                     android:text="Sillicon Valley"
                     android:textColor="@color/colorDarkPink"
-                    android:textSize="18sp" />
+                    android:textSize="9sp" />
                 <ImageView
-                    android:id="@+id/hr_line"
+                    android:id="@+id/hr_line1"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:contentDescription="image"
@@ -61,7 +61,7 @@
                     android:src="@drawable/ic_baseline_horizontal_rule_24"
                     />
                 <TextView
-                    android:id="@+id/DropLoc"
+                    android:id="@+id/DropLoc1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -70,11 +70,54 @@
                     android:gravity="end"
                     android:text="Sillicon Valley"
                     android:textColor="@color/colorDarkPink"
-                    android:textSize="18sp" />
+                    android:textSize="9sp" />
 
             </LinearLayout>
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="4dp"
+            android:layout_toEndOf="@+id/fc_back_btn"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/PickupLoc"
+                android:layout_width="160sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/oxygen"
+                android:gravity="start"
+                android:layout_gravity="center"
+                android:text="Sillicon Valley"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="12sp" />
+            <ImageView
+                android:id="@+id/hr_line"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="image"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_baseline_horizontal_rule_24"
+                />
+            <TextView
+                android:id="@+id/DropLoc"
+                android:layout_width="160sp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="center"
+                android:fontFamily="@font/oxygen"
+                android:gravity="end"
+                android:text="Sillicon Valley"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

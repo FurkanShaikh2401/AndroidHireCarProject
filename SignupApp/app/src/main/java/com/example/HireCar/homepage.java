@@ -152,21 +152,23 @@ public class homepage extends AppCompatActivity {
 //        dbHelper.getLoc();
 //        String locn[]=dbHelper.getplant();
 
-        DBHelper dbHelper11 = new DBHelper(this);
-        Cursor res=dbHelper11.getplant();
-        StringBuffer buffer=new StringBuffer();
-        if(res.getCount() == 0){
-            Toast.makeText(this, "no data", Toast.LENGTH_SHORT).show();
-            return;
+//        DBHelper dbHelper11 = new DBHelper(this);
+//        Cursor res=dbHelper11.getplant();
+//        StringBuffer buffer=new StringBuffer();
+//        if(res.getCount() == 0){
+//            Toast.makeText(this, "no data", Toast.LENGTH_SHORT).show();
+//            return;
+//
+//        }else {
+//
+//            while (res.moveToNext()){
+//                buffer.append(res.getString(0));
+//            }
+//        }
+//        Toast.makeText(this, buffer.toString(), Toast.LENGTH_SHORT).show();
 
-        }else {
-
-            while (res.moveToNext()){
-                buffer.append(res.getString(0));
-            }
-        }
-        Toast.makeText(this, buffer.toString(), Toast.LENGTH_SHORT).show();
-        adapterItems = new ArrayAdapter<String>(this, R.layout.list_item,items);
+        displayLocationData();
+        adapterItems = new ArrayAdapter<String>(this, R.layout.list_item,locationlist);
         autoCompleteTextView.setAdapter(adapterItems);
         autoCompleteTextView2.setAdapter(adapterItems);
 
@@ -233,7 +235,7 @@ public class homepage extends AppCompatActivity {
             }
         });
 
-        displayLocationData();
+
 
         // findcars button click
         find_cars_btn.setOnClickListener(new View.OnClickListener() {
@@ -268,16 +270,16 @@ public class homepage extends AppCompatActivity {
 //            }
 //        });
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("users").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("Location").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 locationlist.clear();
                 for (DocumentSnapshot s : value) {
-                    locationlist.add(s.getString("email") + ":" + s.getString("moblie"));
-                    Toast.makeText(homepage.this, locationlist.toString(), Toast.LENGTH_SHORT).show();
+                    locationlist.add(s.getString("Name") );
+
                 }
 
-
+                Toast.makeText(homepage.this, locationlist.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

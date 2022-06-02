@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class FindCarActivity extends AppCompatActivity {
 
@@ -73,8 +74,8 @@ public class FindCarActivity extends AppCompatActivity {
             }
         });
 
-        PickupLocation.setText(pickuploc);
-        DropLocation.setText(droploc);
+        PickupLocation.setText(pickuploc.trim());
+        DropLocation.setText(droploc.toString().trim());
 
 //        setLocationTextView.setText(location_name);
     }
