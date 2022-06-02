@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "321433034620",
-    "project_id": "hirecar-test",
-    "storage_bucket": "hirecar-test.appspot.com"
+    "project_number": "413839344999",
+    "project_id": "carrental-ec0ac",
+    "storage_bucket": "carrental-ec0ac.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:321433034620:android:3696fdb008b29fb4d6cef9",
+        "mobilesdk_app_id": "1:413839344999:android:43410eb82c7cdbec99dbc2",
         "android_client_info": {
           "package_name": "com.example.HireCar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "321433034620-s96fil09cvm8i1mb86sgatpqbesbugil.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.HireCar",
-            "certificate_hash": "bb5cc4314207f033764732c777e18bc90c061f91"
-          }
-        },
-        {
-          "client_id": "321433034620-b26d6gr9drndnqsmcgd5ragg032386oq.apps.googleusercontent.com",
+          "client_id": "413839344999-68s30oc9708euhl368gic38apq5k3j9d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyANAuhau3U5-g6G8W__PKogtnvHEnU5JcE"
+          "current_key": "AIzaSyAGXOwOF7G2zUsZAfcWkd0LAkwQyjcSM64"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "321433034620-b26d6gr9drndnqsmcgd5ragg032386oq.apps.googleusercontent.com",
+              "client_id": "413839344999-68s30oc9708euhl368gic38apq5k3j9d.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

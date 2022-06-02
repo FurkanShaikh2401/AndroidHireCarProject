@@ -10,6 +10,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResult;
+
+import com.example.HireCar.DatabaseFiles.DBHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,6 +41,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -50,6 +56,9 @@ public class MainActivity extends AppCompatActivity{
     TextInputEditText L_email,L_name,L_moblie,L_password,L_dlnumber;
     String CarUri;
     FirebaseAuth mAuth;
+    Bitmap bitmap2;
+    DBHelper dbHelper;
+    byte imgbyte[];
 
 
     @Override
@@ -201,9 +210,11 @@ public class MainActivity extends AppCompatActivity{
                     public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         Toast.makeText(MainActivity.this, "Verification Phone Send", Toast.LENGTH_SHORT).show();
 ////                        sendEmailVerification();
+
+
                         Intent intent3 = new Intent(getApplicationContext(),verify_otp.class);
                         intent3.setFlags(intent3.FLAG_ACTIVITY_CLEAR_TOP);
-
+//                        storeRegisterDataSqlite();
                         //passing the date to next activity.
 
                         intent3.putExtra("dl_number",L_dlnumber.getText().toString());
@@ -213,10 +224,49 @@ public class MainActivity extends AppCompatActivity{
                         intent3.putExtra("image_uri",CarUri);
                         intent3.putExtra("identify_data","Register");
                         intent3.putExtra("otp_mgs",s);
+                        imgbyte = ImageToByte(imageView);
+                        intent3.putExtra("image_bit",imgbyte);
                         startActivity(intent3);
 
                     }
                 }
         );
+    }
+
+
+//    private void storeRegisterDataSqlite() {
+//        String name = L_name.getText().toString();
+//        String email = L_email.getText().toString();
+//        String phoneno = L_moblie.getText().toString();
+//        String dlnumber = L_dlnumber.getText().toString();
+//
+//
+//        boolean result = dbHelper.InsertUserData(name, email, phoneno, dlnumber, imgbyte, false);
+//
+//        if( result == true){
+//            Toast.makeText(MainActivity.this, "User Data Saved Successfully", Toast.LENGTH_LONG).show();
+//            String nameDB = dbHelper.getUserName(name);
+//            Toast.makeText(MainActivity.this, "UserName: "+ nameDB, Toast.LENGTH_LONG).show();
+//
+//        }
+//        else{
+//            Toast.makeText(MainActivity.this, "Failed to Save User Data", Toast.LENGTH_LONG).show();
+//        }
+//
+//    }
+
+    private byte[] ImageToByte(ImageView imageview){
+        try {
+            Bitmap bitmap = ((BitmapDrawable) imageview.getDrawable()).getBitmap();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            stream.close();
+            return byteArray;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

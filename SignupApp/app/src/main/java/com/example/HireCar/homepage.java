@@ -1,12 +1,20 @@
 package com.example.HireCar;
 
+import  static com.example.HireCar.DatabaseFiles.Constants.LOCATION_TABLE;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -17,31 +25,53 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.HireCar.DatabaseFiles.DBHelper;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 
 public class homepage extends AppCompatActivity {
 
-    String items[] = {"London", "Paris", "New York", "Silicon Valley","Las Vegas", "Los Angeles", "Tokyo", "Seattle",
-            "Dubai", "Chicago", "Toronto", "Moscow","Atlanta", "Miami", "Bangkok", "Singapore"};
+    String items[] = {"Paldi Cross Roads, Kocharab, Paldi, Ahmedabad, Gujarat",
+            "Shivranjani Cross Road, Jodhpur Village, Ahmedabad, Gujarat",
+            "Shyamal Cross Road, Shyamal, Ahmedabad, Gujarat",
+            "Panchvati Cir, Ellisbridge, Ahmedabad, Gujarat",
+            "Sardar Vallabhbhai Patel International Airport, Hansol, Ahmedabad, Gujarat",
+            "Vastrapur Lake Garden, Sargam Marg, Vastrapur, Ahmedabad, Gujarat",
+            "Prahaladnagar Garden, Prahlad Nagar, Ahmedabad, Gujarat",
+            "Sanand Chokdi, Sarkhej, Sarkhej-Okaf, Gujarat",
+            "Thaltej chokdi, Thaltej Road, Bhaikakanagar, Thaltej, Ahmedabad, Gujarat",
+            "ISKCON Temple near Sarkhej - Gandhinagar Highway, Bodakdev, Ahmedabad, Gujarat"};
 
     AutoCompleteTextView autoCompleteTextView, autoCompleteTextView2;
     ArrayAdapter<String> adapterItems;
-
+    public List<String> locationlist=new ArrayList<>();
+    public String loc[];
     ImageView backtologin, ProfileBtn;
 
     TextView start_time_txt,end_time_txt, start_date, end_date;
@@ -54,6 +84,16 @@ public class homepage extends AppCompatActivity {
     FirebaseAuth mAuth;
     Button datetimebtn1, datetimebtn2, find_cars_btn;
 
+    DBHelper dbHelper;
+    SQLiteDatabase db;
+    String locations[],locations1[];
+
+    FirebaseFirestore fdb = FirebaseFirestore.getInstance();
+    DocumentReference ref = fdb.collection("Locations").document("5LMGsJVhGX66jjG7O5w8");
+
+
+
+//    @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,16 +116,61 @@ public class homepage extends AppCompatActivity {
         Carrcv = (RecyclerView) findViewById(R.id.recyclerView1);
         Carrcv.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new CarAdapter(dataqueue(), getApplicationContext());
-        Carrcv.setAdapter(adapter);
-
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
         autoCompleteTextView2 = findViewById(R.id.auto_complete_txt2);
 
-        // initializing adapter items
-        adapterItems = new ArrayAdapter<String>(this, R.layout.list_item, items);
+//        dbHelper = new DBHelper(this);
+//        db=dbHelper.getWritableDatabase();
+////        db.openOrCreateDatabase("CarRental", null,null);
+//        Cursor cursor=db.rawQuery("SELECT * FROM Location", null);
+//        locations=new String[cursor.getCount()];
+//
+//        locations1=new String[cursor.getCount()];
+//        cursor.moveToFirst();
+//        for(int i=0;i<locations.length;i++){
+//                locations[i]= cursor.getString(1);
+//        }
+//        ArrayAdapter<String> adp=new ArrayAdapter<~>(this, android.R.layout.)
+//        ArrayList<String> locationn;
+//        locations=dbHelper.getLoc();
+        adapter = new CarAdapter(dataqueue(), getApplicationContext());
+        Carrcv.setAdapter(adapter);
+
+
+
+//        String loc[]= {"Paldi Cross Roads, Kocharab, Paldi, Ahmedabad, Gujarat",
+//                "Shivranjani Cross Road, Jodhpur Village, Ahmedabad, Gujarat"};
+
+//        SQLiteDatabase MyDB=this.getWritableDatabase();
+//        Cursor cursor=MyDB.rawQuery("SELECT * FROM Location",null);
+////        loc=new String[cursor.getCount()];
+//        int p=cursor.getCount();
+//        cursor.moveToFirst();
+//        for(int i=0;i<p;i++){
+//            loc[i]=cursor.getString(0);
+//        }
+//        dbHelper.getLoc();
+//        String locn[]=dbHelper.getplant();
+
+        DBHelper dbHelper11 = new DBHelper(this);
+        Cursor res=dbHelper11.getplant();
+        StringBuffer buffer=new StringBuffer();
+        if(res.getCount() == 0){
+            Toast.makeText(this, "no data", Toast.LENGTH_SHORT).show();
+            return;
+
+        }else {
+
+            while (res.moveToNext()){
+                buffer.append(res.getString(0));
+            }
+        }
+        Toast.makeText(this, buffer.toString(), Toast.LENGTH_SHORT).show();
+        adapterItems = new ArrayAdapter<String>(this, R.layout.list_item,items);
         autoCompleteTextView.setAdapter(adapterItems);
         autoCompleteTextView2.setAdapter(adapterItems);
+
+
 
         // perform on when onItemClick is called
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -148,6 +233,7 @@ public class homepage extends AppCompatActivity {
             }
         });
 
+        displayLocationData();
 
         // findcars button click
         find_cars_btn.setOnClickListener(new View.OnClickListener() {
@@ -163,10 +249,37 @@ public class homepage extends AppCompatActivity {
                startActivity(intent);
             }
         });
-
        // setDatePicker();
+    }
+
+    private void displayLocationData() {
+//        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//            @Override
+//            public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                if(documentSnapshot.exists()){
+//                    String name = documentSnapshot.getString("Name");
+//                    Toast.makeText(homepage.this, name, Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(homepage.this, e.toString(), Toast.LENGTH_LONG).show();
+//            }
+//        });
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                locationlist.clear();
+                for (DocumentSnapshot s : value) {
+                    locationlist.add(s.getString("email") + ":" + s.getString("moblie"));
+                    Toast.makeText(homepage.this, locationlist.toString(), Toast.LENGTH_SHORT).show();
+                }
 
 
+            }
+        });
     }
 
 
@@ -495,6 +608,8 @@ public class homepage extends AppCompatActivity {
         Log.i("ldate2", date2);
 
     }
+
+
 
 
 /*

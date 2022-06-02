@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.HireCar.DatabaseFiles.DBHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,6 +41,8 @@ public class verify_otp extends AppCompatActivity {
     Button verify_button;
     String Backotp;
     FirebaseAuth mAuth;
+    DBHelper dbHelper;
+    Bitmap bitmap2;
 
     // pick data for per. activity variables.
     String L_email,L_name,L_dlnumber,CarUri;
@@ -51,6 +55,7 @@ public class verify_otp extends AppCompatActivity {
         setContentView(R.layout.verify_otp);
 
         verify_button = findViewById(R.id.buttonVerify);
+        dbHelper = new DBHelper(verify_otp.this);
 
 
         // get the reference of view for OTP
@@ -107,7 +112,7 @@ public class verify_otp extends AppCompatActivity {
              @Override
              public void onClick(View view) {
                  PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                         "+91"+L_mobile.getText().toString(),
+                         "+91"+getIntent().getStringExtra("mobile"),
                          60,
                          TimeUnit.SECONDS,
                          verify_otp.this,
@@ -166,6 +171,7 @@ public class verify_otp extends AppCompatActivity {
                                      @Override
                                      public void onSuccess(AuthResult authResult) {
                                          setUser(authResult);
+                                         storeRegisterDataSqlite();
                                          Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                                          intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                          startActivity(intent);
@@ -316,5 +322,26 @@ public class verify_otp extends AppCompatActivity {
 
     //    Login methods
 
+    private void storeRegisterDataSqlite() {
+        String name = getIntent().getStringExtra("fname");
+        String email = getIntent().getStringExtra("email");
+        String phoneno = getIntent().getStringExtra("mobile");
+        String dlnumber = getIntent().getStringExtra("dl_number");
+        byte imgbyte[]= getIntent().getByteArrayExtra("image_bit");
+
+
+        boolean result = dbHelper.InsertUserData(name, email, phoneno, dlnumber, imgbyte, false);
+
+        if( result == true){
+            Toast.makeText(verify_otp.this, "User Data Saved Successfully", Toast.LENGTH_LONG).show();
+            String nameDB = dbHelper.getUserName(name);
+            Toast.makeText(verify_otp.this, "UserName: "+ nameDB, Toast.LENGTH_LONG).show();
+
+        }
+        else{
+            Toast.makeText(verify_otp.this, "Failed to Save User Data", Toast.LENGTH_LONG).show();
+        }
+
+    }
     
 }
