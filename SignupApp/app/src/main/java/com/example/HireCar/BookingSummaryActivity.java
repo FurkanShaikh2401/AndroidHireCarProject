@@ -66,6 +66,13 @@ public class BookingSummaryActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "EndTime: " +
                 getIntent().getStringExtra("End_Time"), Toast.LENGTH_SHORT).show();
 
+
+        pickuploc.setText(getIntent().getStringExtra("PickUpLoc"));
+        droploc.setText(getIntent().getStringExtra("DropUpLoc"));
+        start_date.setText(getIntent().getStringExtra("Start_Date"));
+        end_date.setText(getIntent().getStringExtra("End_Date"));
+        start_time.setText(getIntent().getStringExtra("Start_Time"));
+        end_time.setText(getIntent().getStringExtra("End_Time"));
 //        Intent intent = getIntent();
 //        pickuploc.setText(intent.getExtras().getString("PickUpLoc"));
 //        Toast.makeText(getApplicationContext(), "Profile: " +

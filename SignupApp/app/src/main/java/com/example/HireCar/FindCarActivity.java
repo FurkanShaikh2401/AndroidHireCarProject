@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class FindCarActivity extends AppCompatActivity {
 
@@ -30,12 +29,17 @@ public class FindCarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_car);
-
+        pickuploc =  getIntent().getStringExtra("pickuplocation");
+        droploc =  getIntent().getStringExtra("droplocation");
+        start_date =  getIntent().getStringExtra("startdate");
+        end_date =  getIntent().getStringExtra("enddate");
+        start_time = getIntent().getStringExtra("startingtime");
+        end_time =  getIntent().getStringExtra("endingtime");
 
         Carrcv = (RecyclerView) findViewById(R.id.recyclerView2);
         Carrcv.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new CarAdapter(dataqueue(),getApplicationContext());
+        adapter = new CarAdapter(dataqueue(),getApplicationContext(), start_date, end_date, start_time, end_time, pickuploc, droploc);
         Carrcv.setAdapter(adapter);
 
 

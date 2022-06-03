@@ -35,9 +35,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -133,7 +136,7 @@ public class homepage extends AppCompatActivity {
 //        ArrayAdapter<String> adp=new ArrayAdapter<~>(this, android.R.layout.)
 //        ArrayList<String> locationn;
 //        locations=dbHelper.getLoc();
-        adapter = new CarAdapter(dataqueue(), getApplicationContext());
+        adapter = new CarAdapter(dataqueue(), getApplicationContext(), String.valueOf(start_date), String.valueOf(end_date), String.valueOf(start_time_txt), String.valueOf(end_time_txt), String.valueOf(autoCompleteTextView), String.valueOf(autoCompleteTextView2));
         Carrcv.setAdapter(adapter);
 
 
@@ -182,6 +185,9 @@ public class homepage extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Item1: "+ item, Toast.LENGTH_SHORT).show();
             }
         });
+
+
+//        usercheck();
 
 
         // perform on when onItemClick is called
@@ -421,19 +427,20 @@ public class homepage extends AppCompatActivity {
 
     // First DateTime Picker
     private void selectFirstDateTimePicker(){
+
+        CalendarConstraints.Builder calendarConstraint = new CalendarConstraints.Builder();
+        calendarConstraint.setValidator(DateValidatorPointForward.now());
+
+
         // material date picker
         MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText("SELECT START DATE");
 
+        builder.setCalendarConstraints(calendarConstraint.build());
+
         final MaterialDatePicker materialDatePicker = builder.build();
 
-        // datetime picker
-        datetimebtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                materialDatePicker.show(getSupportFragmentManager(), "Date Picker");
-            }
-        });
+        materialDatePicker.show(getSupportFragmentManager(), "Date Picker");
 
         materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
             @Override
@@ -491,10 +498,17 @@ public class homepage extends AppCompatActivity {
 
     // Second DateTime Picker
     private void selectSecondDateTimePicker(){
+
+        CalendarConstraints.Builder calendarConstraint = new CalendarConstraints.Builder();
+        calendarConstraint.setValidator(DateValidatorPointForward.now());
+
+
+
+
         // material date picker
         MaterialDatePicker.Builder builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText("SELECT END DATE");
-
+        builder.setCalendarConstraints(calendarConstraint.build());
         final MaterialDatePicker materialDatePicker = builder.build();
 
         // datetime picker
@@ -725,5 +739,26 @@ public class homepage extends AppCompatActivity {
         timePickerDialog.show();
     }
 */
+
+
+//    public void usercheck(){
+//        final Object[] is_admin = {new String[1]};
+//        FirebaseFirestore rootref=FirebaseFirestore.getInstance();
+//        CollectionReference applref=rootref.collection("users");
+//        DocumentReference appl_id_ref=applref.document(mAuth.getCurrentUser().getUid().toString());
+//
+//        appl_id_ref.get().addOnCompleteListener(task -> {
+//            if(task.isSuccessful()){
+//                DocumentSnapshot documentSnapshot=task.getResult();
+//                if(documentSnapshot.exists()){
+//                    is_admin[0] =documentSnapshot.get("is_admin");
+//                    Toast.makeText(this, is_admin[0].toString(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//        });
+//
+//
+//    }
 
 }

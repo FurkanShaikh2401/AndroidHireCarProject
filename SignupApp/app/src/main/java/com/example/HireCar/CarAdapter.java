@@ -2,9 +2,12 @@ package com.example.HireCar;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,13 +17,21 @@ import java.util.ArrayList;
 
 public class CarAdapter extends RecyclerView.Adapter<CarViewHolder> {
 
+    String pl, dl;
+    String sd, ed, st, et;
     Context context;
     ArrayList<Model> data;
 
-    public CarAdapter(ArrayList<Model> data, Context context)
+    public CarAdapter(ArrayList<Model> data, Context context, String start_date, String end_date, String start_time_txt, String end_time_txt, String autoCompleteTextView, String autoCompleteTextView2)
     {
         this.data = data;
         this.context = context;
+        this.pl = autoCompleteTextView;
+        this.dl = autoCompleteTextView2;
+        this.sd = start_date;
+        this.ed = end_date;
+        this.st = start_time_txt;
+        this.et = end_time_txt;
     }
 
     @NonNull
@@ -56,14 +67,15 @@ public class CarAdapter extends RecyclerView.Adapter<CarViewHolder> {
                 intent.putExtra("CapacityTitle", temp.getdTitle3());
                 intent.putExtra("PriceTitle", temp.getPriceTag());
 
-                Toast.makeText(context, "pickup"+intent.getExtras().getString("pickuplocation"), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "pickup"+intent.getExtras().getString("pickuplocation"), Toast.LENGTH_SHORT).show();
 
-                intent.putExtra("PickUpLoc", intent.getExtras().getString("pickuplocation"));
-                intent.putExtra("DropLoc", intent.getExtras().getString("droplocation"));
-                intent.putExtra("Start_Date", intent.getExtras().getString("startdate"));
-                intent.putExtra("End_Date", intent.getExtras().getString("enddate"));
-                intent.putExtra("Start_Time", intent.getExtras().getString("startingtime"));
-                intent.putExtra("End_Time", intent.getExtras().getString("endingtime"));
+                intent.putExtra("PickUpLoc", pl);
+                intent.putExtra("DropLoc",dl);
+                intent.putExtra("Start_Date", sd);
+                intent.putExtra("End_Date", ed);
+                intent.putExtra("Start_Time", st);
+                intent.putExtra("End_Time", et);
+
                 //intent.putExtra("CarImage", temp.getImgId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);

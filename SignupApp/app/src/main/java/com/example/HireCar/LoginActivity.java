@@ -19,6 +19,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     String New_verificationId;
 
+    public String admin_not;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -37,10 +42,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mAuth=FirebaseAuth.getInstance();
+
+
+
         if(mAuth.getCurrentUser()!=null){
-            Intent intent1 = new Intent(getApplicationContext(),homepage.class);
-            intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent1);
+
+            usercheck();
+
         }
         setContentView(R.layout.activity_login);
         initUi_Login();
@@ -78,6 +86,50 @@ public class LoginActivity extends AppCompatActivity {
 //            }
 //        });
     }
+
+    public void usercheck(){
+        final String[] is_admin = new String[1];
+        FirebaseFirestore rootref=FirebaseFirestore.getInstance();
+        CollectionReference applref=rootref.collection("users");
+        DocumentReference appl_id_ref=applref.document(mAuth.getCurrentUser().getUid().toString());
+
+        appl_id_ref.get().addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                DocumentSnapshot documentSnapshot=task.getResult();
+                if(documentSnapshot.exists()){
+                    is_admin[0] = (String) documentSnapshot.get("is_admin");
+                    Toast.makeText(this, is_admin[0].toString().trim(), Toast.LENGTH_SHORT).show();
+                    admin_not=is_admin[0].toString().trim();
+
+                    if(admin_not.equals("0")){
+                        Intent intent4 = new Intent(getApplicationContext(),homepage.class);
+                        intent4.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent4);
+                    }else if(admin_not.equals("1")){
+                        Intent intent5 = new Intent(getApplicationContext(),welcome_screen.class);
+                        intent5.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent5);
+                    }
+                }
+            }
+
+        });
+
+//        if(admin_not=="true"){
+//            Toast.makeText(this, admin_not.toString(), Toast.LENGTH_SHORT).show();
+//
+//            Intent intent1 = new Intent(getApplicationContext(),homepage.class);
+//            intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            startActivity(intent1);
+//        }else {
+//            Intent intent2 = new Intent(getApplicationContext(),welcome_screen.class);
+//            intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            startActivity(intent2);
+//        }
+
+
+    }
+
     private void initUi_Login(){
 //        L_email=findViewById(R.id.L_email);
 //        L_password=findViewById(R.id.L_password);
