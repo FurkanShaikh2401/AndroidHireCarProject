@@ -41,11 +41,14 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.ParseException;
@@ -60,17 +63,6 @@ import java.util.concurrent.TimeUnit;
 
 public class homepage extends AppCompatActivity {
 
-    String items[] = {"Paldi Cross Roads, Kocharab, Paldi, Ahmedabad, Gujarat",
-            "Shivranjani Cross Road, Jodhpur Village, Ahmedabad, Gujarat",
-            "Shyamal Cross Road, Shyamal, Ahmedabad, Gujarat",
-            "Panchvati Cir, Ellisbridge, Ahmedabad, Gujarat",
-            "Sardar Vallabhbhai Patel International Airport, Hansol, Ahmedabad, Gujarat",
-            "Vastrapur Lake Garden, Sargam Marg, Vastrapur, Ahmedabad, Gujarat",
-            "Prahaladnagar Garden, Prahlad Nagar, Ahmedabad, Gujarat",
-            "Sanand Chokdi, Sarkhej, Sarkhej-Okaf, Gujarat",
-            "Thaltej chokdi, Thaltej Road, Bhaikakanagar, Thaltej, Ahmedabad, Gujarat",
-            "ISKCON Temple near Sarkhej - Gandhinagar Highway, Bodakdev, Ahmedabad, Gujarat"};
-
     AutoCompleteTextView autoCompleteTextView, autoCompleteTextView2;
     ArrayAdapter<String> adapterItems;
     public List<String> locationlist=new ArrayList<>();
@@ -80,6 +72,7 @@ public class homepage extends AppCompatActivity {
     TextView start_time_txt,end_time_txt, start_date, end_date;
     // hour and minute
     int hour, minute;
+    String finalDays, finalHours;
 
     //Recyclerview object and CarAdapter object
     RecyclerView Carrcv;
@@ -116,28 +109,15 @@ public class homepage extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         String c_user=mAuth.getCurrentUser().getPhoneNumber();
         // recyclerview and adapter initializing
-        Carrcv = (RecyclerView) findViewById(R.id.recyclerView1);
-        Carrcv.setLayoutManager(new LinearLayoutManager(this));
+//        Carrcv = (RecyclerView) findViewById(R.id.recyclerView1);
+//        Carrcv.setLayoutManager(new LinearLayoutManager(this));
 
         autoCompleteTextView = findViewById(R.id.auto_complete_txt);
         autoCompleteTextView2 = findViewById(R.id.auto_complete_txt2);
 
-//        dbHelper = new DBHelper(this);
-//        db=dbHelper.getWritableDatabase();
-////        db.openOrCreateDatabase("CarRental", null,null);
-//        Cursor cursor=db.rawQuery("SELECT * FROM Location", null);
-//        locations=new String[cursor.getCount()];
-//
-//        locations1=new String[cursor.getCount()];
-//        cursor.moveToFirst();
-//        for(int i=0;i<locations.length;i++){
-//                locations[i]= cursor.getString(1);
-//        }
-//        ArrayAdapter<String> adp=new ArrayAdapter<~>(this, android.R.layout.)
-//        ArrayList<String> locationn;
-//        locations=dbHelper.getLoc();
-        adapter = new CarAdapter(dataqueue(), getApplicationContext(), String.valueOf(start_date), String.valueOf(end_date), String.valueOf(start_time_txt), String.valueOf(end_time_txt), String.valueOf(autoCompleteTextView), String.valueOf(autoCompleteTextView2));
-        Carrcv.setAdapter(adapter);
+
+//        adapter = new CarAdapter(dataqueue(), getApplicationContext(), String.valueOf(start_date), String.valueOf(end_date), String.valueOf(start_time_txt), String.valueOf(end_time_txt), String.valueOf(autoCompleteTextView), String.valueOf(autoCompleteTextView2));
+//        Carrcv.setAdapter(adapter);
 
 
 
@@ -254,6 +234,8 @@ public class homepage extends AppCompatActivity {
                intent.putExtra("enddate", end_date.getText().toString());
                intent.putExtra("startingtime", start_time_txt.getText().toString());
                intent.putExtra("endingtime", end_time_txt.getText().toString());
+               intent.putExtra("finaldays", finalDays);
+               intent.putExtra("finalhours", finalHours);
                startActivity(intent);
             }
         });
@@ -292,10 +274,10 @@ public class homepage extends AppCompatActivity {
 
 
     // Model For RecyclerView
-    private ArrayList<Model> dataqueue() {
-        ArrayList<Model> holder = new ArrayList<>();
+//    private ArrayList<Model> dataqueue() {
+//        ArrayList<Model> holder = new ArrayList<>();
 
-        Model mobj1 = new Model();
+        /*Model mobj1 = new Model();
         mobj1.setBrandTitle("Hyundai");
         mobj1.setModelTitle("Grand i10");
         mobj1.setdTitle1("diesel");
@@ -421,9 +403,31 @@ public class homepage extends AppCompatActivity {
         mobj10.setBookBtn("Book");
 
 
-        holder.add(mobj10);
-        return holder;
-    }
+        holder.add(mobj10);*/
+
+//        fdb.collection("users").orderBy("model_name", Query.Direction.ASCENDING).addSnapshotListener(new EventListener<QuerySnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+//
+//                if(error != null){
+////                    log.e("firebase error => storage",error.getMessage());
+//                    Toast.makeText(homepage.this, "Firebase storage error "+error.getMessage(), Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//                for(DocumentChange dc : value.getDocumentChanges()){
+//                    if(dc.getType() == DocumentChange.Type.ADDED ){
+//                        holder.add(dc.getDocument().toObject(Model.class));
+//                    }
+//
+//                }
+//
+//            }
+//        });
+
+
+//        return holder;
+//    }
 
     // First DateTime Picker
     private void selectFirstDateTimePicker(){
@@ -581,6 +585,7 @@ public class homepage extends AppCompatActivity {
 
             String finaldate = String.valueOf(diff3);
             Log.i("Final", finaldate);
+            finalDays = finaldate;
             calculateTimeDuration();
 
 
@@ -615,6 +620,7 @@ public class homepage extends AppCompatActivity {
             Log.i("hours", String.valueOf(hhours));
             Log.i("min", String.valueOf(min));
             Log.i("fhourmin",String.valueOf(hhours)+":"+String.valueOf(min));
+            finalHours = String.valueOf(hhours);
 
         } catch (ParseException e) {
             e.printStackTrace();

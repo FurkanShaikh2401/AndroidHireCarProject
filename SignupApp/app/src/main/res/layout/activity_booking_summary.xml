@@ -187,7 +187,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="4dp"
             android:layout_toEndOf="@+id/fc_back_btn"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="center">
 
             <TextView
@@ -201,14 +201,7 @@
                 android:text="Sillicon Valley"
                 android:textColor="@color/colorDarkPink"
                 android:textSize="18sp" />
-            <ImageView
-                android:id="@+id/hr_line"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:contentDescription="image"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_horizontal_rule_24"
-                />
+
             <TextView
                 android:id="@+id/DropLoc"
                 android:layout_width="wrap_content"
@@ -219,7 +212,8 @@
                 android:gravity="center"
                 android:text="Sillicon Valley"
                 android:textColor="@color/colorDarkPink"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
 
@@ -384,10 +378,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/colorDarkPink"
+                android:fontFamily="@font/oxygen"
                 android:text="Terms and Conditions"
                 android:textColor="@color/colorDarkPink"
-                android:textSize="15dp"
-                android:fontFamily="@font/oxygen"/>
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/tandcline_txt"

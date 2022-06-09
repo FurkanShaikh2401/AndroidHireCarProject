@@ -8,21 +8,20 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 public class CarViewHolder extends RecyclerView.ViewHolder {
-    ImageView carimg;
-    TextView brandTitle,modelTitle,dTitle1, dTitle2, dTitle3, priceTag;
+    ImageView carImg;
+    TextView brandTitle,modelTitle,fuelTitle, transmissionTitle, capacityTitle, cost;
     Button bookBtn;
 
     public CarViewHolder(@NonNull View itemView) {
         super(itemView);
-        carimg = itemView.findViewById(R.id.carImg);
+        carImg = itemView.findViewById(R.id.carImg);
         brandTitle = itemView.findViewById(R.id.brandName);
         modelTitle = itemView.findViewById(R.id.modelName);
-        dTitle1 = itemView.findViewById(R.id.diesel_txt);
-        dTitle2 = itemView.findViewById(R.id.diesel_txt2);
-        dTitle3 = itemView.findViewById(R.id.diesel_txt3);
-        priceTag = itemView.findViewById(R.id.price_txt);
+        fuelTitle = itemView.findViewById(R.id.fuel);
+        transmissionTitle = itemView.findViewById(R.id.transmission);
+        capacityTitle= itemView.findViewById(R.id.capacity);
+        cost = itemView.findViewById(R.id.price);
         bookBtn = itemView.findViewById(R.id.bookbtn);
 
     }

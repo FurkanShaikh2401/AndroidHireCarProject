@@ -5,15 +5,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfileSettingsActivity extends AppCompatActivity {
 
     ImageView ProfileManageBtn, MyBookingBtn, faqsBtn, policyBtn, cpBtn, LogoutBtn;
+
+    TextView UserName,UserEmail,UserPhone;
+
+    FirebaseAuth mAuth;
+//    String userE,userp,userN;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +36,20 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         policyBtn = findViewById(R.id.navigate_policy);
         cpBtn = findViewById(R.id.navigate_cp);
         LogoutBtn = findViewById(R.id.navigate_logout);
+
+        UserName=findViewById(R.id.userName);
+        UserEmail=findViewById(R.id.userEmail);
+        UserPhone=findViewById(R.id.userPhone);
+
+        mAuth=FirebaseAuth.getInstance();
+////        userE= mAuth.getCurrentUser().getEmail();
+//        userp= mAuth.getCurrentUser().getPhoneNumber();
+////        userN= mAuth.getCurrentUser().getDisplayName();
+        userDetails();
+//        Toast.makeText(this, "User phone : "+userp, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "User Email : "+userE, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "User Name : "+userN, Toast.LENGTH_SHORT).show();
+
 
         // setting profile manage
         ProfileManageBtn.setOnClickListener(new View.OnClickListener() {
@@ -78,5 +103,30 @@ public class ProfileSettingsActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void userDetails() {
+        final String[] is_admin = new String[2];
+        FirebaseFirestore rootref = FirebaseFirestore.getInstance();
+        CollectionReference applref = rootref.collection("users");
+        DocumentReference appl_id_ref = applref.document(mAuth.getCurrentUser().getUid().toString());
+
+        appl_id_ref.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot documentSnapshot = task.getResult();
+                if (documentSnapshot.exists()) {
+                    is_admin[0] = (String) documentSnapshot.get("email");
+                    is_admin[1] = (String) documentSnapshot.get("full name");
+//                    Toast.makeText(this, is_admin[0].toString().trim(), Toast.LENGTH_SHORT).show();
+                    UserEmail.setText(is_admin[0].trim());
+                    UserName.setText(is_admin[1].trim());
+                    UserPhone.setText(mAuth.getCurrentUser().getPhoneNumber());
+
+
+
+                }
+            }
+
+        });
     }
 }

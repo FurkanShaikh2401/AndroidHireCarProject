@@ -303,7 +303,7 @@ public class verify_otp extends AppCompatActivity {
         data.put("email", L_email);
         data.put("full name", L_name);
         data.put("moblie", "+91"+L_mobile1);
-        data.put("is_admin","false");
+        data.put("is_admin","0");
         data.put("DL number", "GJ01" + L_dlnumber);
 
         data.put("DL_photo", CarUri);
