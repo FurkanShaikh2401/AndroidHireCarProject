@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin_home"
+    android:background="@color/colorSecondaryPink"
+    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="40dp">
+
+        <TextView
+            android:id="@+id/welcome_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Admin"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorDarkPink"
+            android:gravity="center"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shaikh Mohammed Furkan"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorDarkPink"
+            android:layout_marginTop="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Data"
+                android:textSize="30dp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_account_circle"/>
+                <TextView
+                    android:id="@+id/profile_manage_txt"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/viewusers"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_users"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_baseline_directions_car_24" />
+                <TextView
+                    android:id="@+id/viewcars"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/viewcars"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_cars"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_baseline_location_on_24" />
+                <TextView
+                    android:id="@+id/viewlocs"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/viewlocations"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_locations"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_mybooking" />
+                <TextView
+                    android:id="@+id/viewbookings"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/viewbookings"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_bookings"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Data"
+                android:textSize="30dp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_account_circle"/>
+                <TextView
+                    android:id="@+id/add_profile_txt"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/add_users"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_users_add"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_baseline_directions_car_24" />
+                <TextView
+                    android:id="@+id/add_cars_txt"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/add_cars"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_cars_add"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_baseline_location_on_24" />
+                <TextView
+                    android:id="@+id/addlocs_txt"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/add_locations"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_locations_add"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete Data"
+                android:textSize="30dp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_account_circle"/>
+                <TextView
+                    android:id="@+id/del_profile_txt"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/del_users"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_users_del"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_baseline_directions_car_24" />
+                <TextView
+                    android:id="@+id/del_cars_txt"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/del_cars"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_cars_del"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_baseline_location_on_24" />
+                <TextView
+                    android:id="@+id/del_locs_txt"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/del_locations"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_locations_del"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Update Data"
+                android:textSize="30dp"
+                android:textColor="@color/colorDarkPink"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAllCaps="true"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_account_circle"/>
+                <TextView
+                    android:id="@+id/up_profile_txt"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/up_users"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_users_up"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_baseline_directions_car_24" />
+                <TextView
+                    android:id="@+id/up_cars_txt"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/up_cars"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_cars_up"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/colorDarkPink"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/imagedesc"
+                    android:src="@drawable/ic_baseline_location_on_24" />
+                <TextView
+                    android:id="@+id/up_locs_txt"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/up_locations"
+                    android:textAlignment="inherit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/oxygen_bold"/>
+
+                <ImageView
+                    android:id="@+id/navigate_locations_up"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="right"
+                    android:contentDescription="nvbutton"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorDarkPink"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="14dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_logout"
+                android:contentDescription="@string/imagedesc"/>
+            <TextView
+                android:id="@+id/logout_txt"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Log out"
+                android:textAlignment="inherit"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:fontFamily="@font/oxygen_bold"/>
+
+            <ImageView
+                android:id="@+id/navigate_logout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:contentDescription="nvbutton"
+                android:src="@drawable/ic_chevron_right" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

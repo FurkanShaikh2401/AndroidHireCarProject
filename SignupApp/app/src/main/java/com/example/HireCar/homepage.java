@@ -85,7 +85,7 @@ public class homepage extends AppCompatActivity {
     String locations[],locations1[];
 
     FirebaseFirestore fdb = FirebaseFirestore.getInstance();
-    DocumentReference ref = fdb.collection("Locations").document("5LMGsJVhGX66jjG7O5w8");
+//    DocumentReference ref = fdb.collection("Locations").document("5LMGsJVhGX66jjG7O5w8");
 
 
 

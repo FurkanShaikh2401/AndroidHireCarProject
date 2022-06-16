@@ -2,11 +2,11 @@ package com.example.HireCar;
 
 public class BookingCarModel{
     String amount, user_id, car_id, start_date, end_date, pickup_location, drop_location, start_time, end_time;
-
+    String mobile;
     public BookingCarModel() {
     }
 
-    public BookingCarModel(String amount, String user_id, String car_id, String start_date, String end_date, String pickup_location, String drop_location, String starttime, String endtime) {
+    public BookingCarModel(String amount, String user_id, String car_id, String start_date, String end_date, String pickup_location, String drop_location, String starttime, String endtime, String mobileno) {
         this.amount = amount;
         this.user_id = user_id;
         this.car_id = car_id;
@@ -16,6 +16,15 @@ public class BookingCarModel{
         this.drop_location = drop_location;
         this.start_time = starttime;
         this.end_time = endtime;
+        this.mobile = mobileno;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getAmount() {

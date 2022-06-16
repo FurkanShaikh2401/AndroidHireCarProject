@@ -59,7 +59,7 @@ public class verify_login extends AppCompatActivity {
         L_mobile = findViewById(R.id.textMobile);
 
         String PhoneNumber = "+91"+getIntent().getStringExtra("phone_number");
-
+        String ph_no=getIntent().getStringExtra("phone_number");
 
         L_mobile.setText(String.format(
                 "+91"+getIntent().getStringExtra("phone_number")
@@ -85,10 +85,17 @@ public class verify_login extends AppCompatActivity {
         Resend_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent_resend=new Intent(verify_login.this,verify_login.class);
-                intent_resend.putExtra("phone_number",PhoneNumber);
-                intent_resend.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent_resend);
+//                Intent intent_resend=new Intent(verify_login.this,verify_login.class);
+//
+//                intent_resend.putExtra("phone_number",ph_no);
+//                intent_resend.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(intent_resend);
+                SendVerificationCode(PhoneNumber);
+//                Intent intent = getIntent();
+//                finish();
+//                String ph_no=getIntent().getStringExtra("phone_number");
+//                intent.putExtra("phone_number",ph_no);
+//                startActivity(intent);
             }
         });
 

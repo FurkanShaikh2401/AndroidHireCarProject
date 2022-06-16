@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardMain"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <RelativeLayout
+            android:id="@+id/header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/car_id_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6Fl1VpkOZLhEJqDAig0K"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/regno_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="GJ01PX56718"
+                android:textAllCaps="true"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="13dp" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/sub_header_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_layout">
+
+            <TextView
+                android:id="@+id/brandName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="90dp"
+                android:fontFamily="@font/oxygen"
+                android:text="Hyundai"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/modelName"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/oxygen_bold"
+            android:text="Grand i10"
+            android:textColor="@color/colorDarkPink"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.003"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sub_header_layout" />
+
+        <LinearLayout
+            android:id="@+id/func_layout"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/modelName">
+
+            <TextView
+                android:id="@+id/fueltype_txt"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/oxygen"
+                android:text="diesel"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/userEmail"
+                tools:layout_editor_absoluteX="19dp" />
+
+            <TextView
+                android:id="@+id/transtype_txt"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/oxygen"
+                android:gravity="center"
+                android:text="manual"
+                android:textAlignment="center"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/userEmail"
+                tools:layout_editor_absoluteX="19dp" />
+
+            <TextView
+                android:id="@+id/cap_txt"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/oxygen"
+                android:text="7 seat"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@+id/userEmail"
+                tools:layout_editor_absoluteX="19dp" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/carImg"
+            android:layout_width="174dp"
+            android:layout_height="118dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/white"
+            android:foregroundGravity="right"
+            android:src="@drawable/car1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintStart_toEndOf="@+id/modelName"
+            app:layout_constraintTop_toBottomOf="@+id/header_layout" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carImg">
+
+            <TextView
+                android:id="@+id/RsTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/cost_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1,888"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="16dp" />
+
+
+            <TextView
+                android:id="@+id/bodytype_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="Hatchback"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/avlflag_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="false"
+                android:textColor="@color/colorDarkPink"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/BtnLayouts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:layout_editor_absoluteX="10dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/edtBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:textColor="@color/white"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/colorDarkPink"/>
+
+
+            <Button
+                android:id="@+id/delBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/colorDarkPink"
+                android:layout_alignRight="@+id/edtBtn"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

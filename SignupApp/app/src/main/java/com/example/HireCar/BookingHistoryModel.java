@@ -1,25 +1,23 @@
 package com.example.HireCar;
 
-public class BookingModel
-{
-    private int imgId;
-    private String order_id, brandTitle,modelTitle, startDate, endDate, startTime, endTime, priceTag, viewBtn;
+public class BookingHistoryModel {
 
-    public String getOrder_id() {
-        return order_id;
+    private String brandTitle,modelTitle, startDate, endDate, startTime, endTime, priceTag, Image;
+
+    public BookingHistoryModel() {
     }
 
-    public void setOrder_id(String order_id) {
-        this.order_id = order_id;
+    public BookingHistoryModel(String brandTitle, String modelTitle, String startDate, String endDate, String startTime, String endTime, String priceTag, String image) {
+        this.brandTitle = brandTitle;
+        this.modelTitle = modelTitle;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.priceTag = priceTag;
+        Image = image;
     }
 
-    public int getImgId() {
-        return imgId;
-    }
-
-    public void setImgId(int imgId) {
-        this.imgId = imgId;
-    }
 
     public String getBrandTitle() {
         return brandTitle;
@@ -77,11 +75,12 @@ public class BookingModel
         this.priceTag = priceTag;
     }
 
-//    public String getViewBtn() {
-//        return viewBtn;
-//    }
+    public String getImage() {
+        return Image;
+    }
 
-//    public void setViewBtn(String viewBtn) {
-//        this.viewBtn = viewBtn;
-//    }
+    public void setImage(String image) {
+        Image = image;
+    }
 }
+

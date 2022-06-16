@@ -95,6 +95,8 @@ public class FindCarActivity extends AppCompatActivity {
                 intent.putExtra("enddate", end_date);
                 intent.putExtra("startingtime", start_time);
                 intent.putExtra("endingtime", end_time);
+                intent.putExtra("finalhours", finalHours);
+                intent.putExtra("finaldays", finalDays);
                 startActivity(intent);
             }
         });
@@ -103,7 +105,7 @@ public class FindCarActivity extends AppCompatActivity {
         DropLocation.setText(droploc.toString().trim());
 
         db = FirebaseFirestore.getInstance();
-        db.collection("Cars").get()
+        db.collection("Cars").whereEqualTo("available_flag", "true").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -117,7 +119,7 @@ public class FindCarActivity extends AppCompatActivity {
                             cm.setCost(String.valueOf(d.getString("cost")));
                             cm.setFuel(String.valueOf(d.getString("fuel")));
                             cm.setTransmission(String.valueOf(d.getString("transmission")));
-//                            cm.setAvailable_flag(String.valueOf(d.getString("available_flag")));
+                            cm.setAvailable_flag(String.valueOf(d.getString("available_flag")));
                             cm.setCapacity(String.valueOf(d.getString("capacity")));
                             cm.setCar_image(String.valueOf(d.getString("car_image")));
                             carList.add(cm);

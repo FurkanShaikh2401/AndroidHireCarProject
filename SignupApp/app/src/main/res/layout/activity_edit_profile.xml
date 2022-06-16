@@ -59,23 +59,24 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:hint="@string/emailhint"
                 android:textColorHint="@color/colorDarkPink"
-                app:startIconDrawable="@drawable/mail"
+                app:boxStrokeColor="@color/colorDarkPink"
+                app:boxStrokeWidthFocused="2dp"
                 app:endIconMode="clear_text"
                 app:endIconTint="@color/colorDarkPink"
                 app:hintTextColor="@color/colorDarkPink"
-                app:startIconTint="@color/colorDarkPink"
-                app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/colorDarkPink"
-                android:layout_marginTop="15dp">
+                app:startIconDrawable="@drawable/mail"
+                app:startIconTint="@color/colorDarkPink">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/oxygen"
                     android:inputType="textEmailAddress"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,6 +96,7 @@
                 android:layout_marginTop="10dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/oxygen"
@@ -103,65 +105,219 @@
                     android:textSize="15dp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_mobileno"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/til_mobileno"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/mbno"-->
+<!--                app:startIconDrawable="@drawable/phonecall"-->
+<!--                android:textColorHint="@color/colorDarkPink"-->
+<!--                app:endIconMode="clear_text"-->
+<!--                app:endIconTint="@color/colorDarkPink"-->
+<!--                app:hintTextColor="@color/colorDarkPink"-->
+<!--                app:startIconTint="@color/colorDarkPink"-->
+<!--                app:boxStrokeWidthFocused="2dp"-->
+<!--                app:boxStrokeColor="@color/colorDarkPink"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:prefixText="+91"-->
+<!--                app:prefixTextColor="@color/colorDarkPink">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/edt_mobileno"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/oxygen"-->
+<!--                    android:inputType="number"-->
+<!--                    android:maxLength="10"-->
+<!--                    android:textSize="15dp"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/dlnumber"-->
+<!--                app:startIconDrawable="@drawable/dial"-->
+<!--                android:textColorHint="@color/colorDarkPink"-->
+<!--                app:boxStrokeWidthFocused="2dp"-->
+<!--                app:boxStrokeColor="@color/colorDarkPink"-->
+<!--                app:endIconMode="clear_text"-->
+<!--                app:endIconTint="@color/colorDarkPink"-->
+<!--                app:hintTextColor="@color/colorDarkPink"-->
+<!--                app:startIconTint="@color/colorDarkPink"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:prefixText="GJ01"-->
+<!--                app:prefixTextColor="@color/colorDarkPink">-->
+
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="@font/oxygen"-->
+<!--                    android:inputType="number"-->
+<!--                    android:maxLength="11"-->
+<!--                    android:textSize="15dp"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/mbno"
-                app:startIconDrawable="@drawable/phonecall"
-                android:textColorHint="@color/colorDarkPink"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/colorDarkPink"
-                app:hintTextColor="@color/colorDarkPink"
-                app:startIconTint="@color/colorDarkPink"
-                app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/colorDarkPink"
-                android:layout_marginTop="10dp"
-                app:prefixText="+91"
-                app:prefixTextColor="@color/colorDarkPink">
+                android:orientation="vertical"
+                android:background="@color/colorDarkPink"
+                android:layout_marginTop="20dp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_mobileno"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/oxygen"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:textSize="15dp"/>
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="Read only data:-"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
+            </LinearLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/dlnumber"
-                app:startIconDrawable="@drawable/dial"
-                android:textColorHint="@color/colorDarkPink"
-                app:boxStrokeWidthFocused="2dp"
-                app:boxStrokeColor="@color/colorDarkPink"
-                app:endIconMode="clear_text"
-                app:endIconTint="@color/colorDarkPink"
-                app:hintTextColor="@color/colorDarkPink"
-                app:startIconTint="@color/colorDarkPink"
-                android:layout_marginTop="10dp"
-                app:prefixText="GJ01"
-                app:prefixTextColor="@color/colorDarkPink">
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="Phone Number :-"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
+
+                <TextView
+                    android:id="@+id/textno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/oxygen"
-                    android:inputType="number"
-                    android:maxLength="11"
-                    android:textSize="15dp"/>
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="+919879163695"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
 
-            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="driving licence No:-"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
+
+                <TextView
+                    android:id="@+id/textDlno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="GJ01-123456789012"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="Email Id :-"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
+
+                <TextView
+                    android:id="@+id/textemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="acbxyz123@gmail.com"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="Full Name:-"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
+
+                <TextView
+                    android:id="@+id/textname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="left"
+                    android:text="User Full Name"
+                    android:textAlignment="inherit"
+                    android:textColor="@color/colorDarkPink"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:fontFamily="@font/oxygen"/>
+
+            </LinearLayout>
             <Button
                 android:id="@+id/fp_c_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/colorDarkPink"
                 android:textColor="@color/white"
                 android:text="SAVE"

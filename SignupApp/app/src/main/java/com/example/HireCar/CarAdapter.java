@@ -74,9 +74,12 @@ public class CarAdapter extends RecyclerView.Adapter<CarViewHolder> {
                 intent.putExtra("modelName", temp.getModel_name());
                 intent.putExtra("FuelTitle", temp.getFuel());
                 intent.putExtra("TransmissionTitle", temp.getTransmission());
-                intent.putExtra("CapacityTitle", temp.getCar_image());
+                intent.putExtra("CapacityTitle", temp.getCapacity());
                 intent.putExtra("Cost", temp.getCost());
                 intent.putExtra("carids", carIds);
+
+                intent.putExtra("image", temp.getCar_image());
+
                 intent.putExtra("PickUpLoc", pl);
                 intent.putExtra("DropLoc",dl);
                 intent.putExtra("Start_Date", sd);

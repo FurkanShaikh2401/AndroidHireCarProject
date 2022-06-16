@@ -36,7 +36,6 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingViewHolder> {
 
 //        final BookingModel temp = data.get(position);
 
-        holder.order_id.setText(data.get(position).getOrder_id());
         holder.brandTitle.setText(data.get(position).getBrandTitle());
         holder.modelTitle.setText(data.get(position).getModelTitle());
         holder.startDate.setText(data.get(position).getStartDate());
@@ -44,7 +43,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingViewHolder> {
         holder.startTime.setText(data.get(position).getStartTime());
         holder.endTime.setText(data.get(position).getEndTime());
         holder.priceTag.setText(data.get(position).getPriceTag());
-        holder.viewBtn.setText(data.get(position).getViewBtn());
+//        holder.viewBtn.setText(data.get(position).getViewBtn());
         holder.carImage.setImageResource(data.get(position).getImgId());
     }
 

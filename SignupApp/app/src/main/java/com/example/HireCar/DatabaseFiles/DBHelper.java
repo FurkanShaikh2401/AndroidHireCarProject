@@ -2,23 +2,14 @@ package com.example.HireCar.DatabaseFiles;
 
 import static com.example.HireCar.DatabaseFiles.Constants.COL_LOCATIONANME;
 import static com.example.HireCar.DatabaseFiles.Constants.LOCATION_TABLE;
-import static com.example.HireCar.DatabaseFiles.Constants.USER_TABLE;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-
-import com.example.HireCar.LocationModel;
-import com.google.firebase.firestore.auth.User;
-
-import java.lang.invoke.ConstantCallSite;
-import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
 

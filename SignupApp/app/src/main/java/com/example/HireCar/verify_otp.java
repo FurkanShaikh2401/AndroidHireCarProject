@@ -97,12 +97,6 @@ public class verify_otp extends AppCompatActivity {
             verify_for_register();
             setupOtpInputs();
             resend_for_register();
-        
-
-        
-
-
-        
 
      }
 

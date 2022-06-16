@@ -28,12 +28,12 @@ public class BookingSummaryActivity extends AppCompatActivity {
     ImageView back_to_findcar_btn;
     Button payment_btn ;
     TextView start_date, end_date, start_time, end_time, pickuploc, droploc, baseFair, dpFair, refundableFair, totalFair, duration;
-    String start_date1, end_date1, start_time1, end_time1, pickuploc1, droploc1;
     String days, hours;
     HashMap<String, String> CarIds;
     CheckBox TestCheckBox;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth;
+    String brandName, modelName, carImage;
 
 
     @Override
@@ -55,12 +55,11 @@ public class BookingSummaryActivity extends AppCompatActivity {
         totalFair = findViewById(R.id.bs_total_price);
         payment_btn = findViewById(R.id.payment_btn);
 
-        payment_btn.setVisibility(View.GONE);
 
         CarIds = (HashMap<String, String>)getIntent().getSerializableExtra("carids");
 
-
         TestCheckBox = (CheckBox)findViewById(R.id.tandcck);
+        payment_btn.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         Log.i("user",  mAuth.getCurrentUser().getUid().toString());
@@ -99,6 +98,9 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "EndTime: " +
                 getIntent().getStringExtra("End_Time"), Toast.LENGTH_SHORT).show();
+
+        Toast.makeText(getApplicationContext(), "Link: " +
+                getIntent().getStringExtra("image"), Toast.LENGTH_SHORT).show();
 
 
 
@@ -166,7 +168,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
                     // if give value is equal to value from entry
                     // print the corresponding key
-                    if(entry.getKey().equals(model_name)) {
+                    if (entry.getKey().equals(model_name)) {
                         //System.out.println("The key for value " + value + " is " + entry.getKey());
                         Log.i("bid", entry.getValue().toString());
                         car_id[0] = entry.getValue().toString();
@@ -185,8 +187,13 @@ public class BookingSummaryActivity extends AppCompatActivity {
                 booking.put("user_id", mAuth.getCurrentUser().getUid().toString());
                 //car_id[0]="MpkV8gkl0sWD1kp9GyMz";
                 booking.put("car_id", car_id[0]);
+                booking.put("model_name", model_name);
+                booking.put("mobile", mAuth.getCurrentUser().getPhoneNumber());
+                booking.put("car_image", getIntent().getStringExtra("image"));
 //                booking.put("car_id", car_id[0].toString());
 //                Log.i("passed", car_id[0].toString());
+
+            db.collection("Cars").document(car_id[0]).update("available_flag","false");
 
                 // Add a new document with a generated ID
                 db.collection("Booking")
@@ -207,11 +214,12 @@ public class BookingSummaryActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MyBookingActivity.class);
                 intent.putExtra("brandName", getIntent().getStringExtra("brandName"));
                 intent.putExtra("modelName", getIntent().getStringExtra("modelName"));
-                intent.putExtra("startDate", String.valueOf(start_date));
-                intent.putExtra("endDate", String.valueOf(end_date));
-                intent.putExtra("startTime", String.valueOf(start_time));
-                intent.putExtra("endTime", String.valueOf(end_time));
+                intent.putExtra("startDate", String.valueOf(start_date.getText().toString()));
+                intent.putExtra("endDate", String.valueOf(end_date.getText().toString()));
+                intent.putExtra("startTime", String.valueOf(start_time.getText().toString()));
+                intent.putExtra("endTime", String.valueOf(end_time.getText().toString()));
                 intent.putExtra("price", totalFair.getText().toString());
+                intent.putExtra("carid", car_id[0]);
                 startActivity(intent);
             }
         });

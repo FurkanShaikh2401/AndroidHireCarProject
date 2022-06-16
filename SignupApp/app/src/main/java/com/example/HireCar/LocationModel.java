@@ -1,17 +1,21 @@
 package com.example.HireCar;
 
 public class LocationModel {
-    private String name;
+    String Name;
 
-    public LocationModel(String name) {
-        this.name = name;
+
+    public LocationModel() {
     }
 
-    public String getName() {
-        return name;
+    public LocationModel(String location_name) {
+        this.Name = location_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getLocation_name() {
+        return Name;
+    }
+
+    public void setLocation_name(String location_name) {
+        this.Name = location_name;
     }
 }

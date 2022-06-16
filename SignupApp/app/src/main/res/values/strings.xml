@@ -31,4 +31,25 @@
     <string name="selectploc">Select Pickup Location</string>
     <string name="selectdloc">Select Drop Location</string>
 
+    <string name="viewusers">View Users</string>
+
+    <string name="viewcars">View Cars</string>
+    <string name="viewlocations">View Locations</string>
+    <string name="viewbookings">View Bookings</string>
+
+    <string name="add_users">Add Users</string>
+    <string name="add_locations">Add Location</string>
+    <string name="add_cars">Add Car</string>
+
+    <string name="del_users">Delete Users</string>
+    <string name="del_locations">Delete Location</string>
+    <string name="del_cars">Delete Car</string>
+
+    <string name="up_users">Update Users</string>
+    <string name="up_locations">Update Location</string>
+    <string name="up_cars">Update Car</string>
+    <string name="car_location_name">ISKCON Temple near Sarkhej - Gandhinagar Highway, Bodakdev, Ahmedabad, Gujarat</string>
+    <string name="pickuploc">ISKCON Temple near Sarkhej - Gandhinagar Highway, Bodakdev, Ahmedabad, Gujarat</string>
+    <string name="droploc">Paldi Cross Roads, Kocharab, Ahmedabad, Gujarat</string>
+
 </resources>

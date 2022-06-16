@@ -10,14 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class BookingViewHolder extends RecyclerView.ViewHolder {
 
-    TextView order_id;
     TextView brandTitle, modelTitle, startDate, endDate, startTime, endTime, priceTag;
     ImageView carImage;
-    Button viewBtn;
+
 
     public BookingViewHolder(@NonNull View itemView) {
         super(itemView);
-        order_id = itemView.findViewById(R.id.orderId);
         brandTitle = itemView.findViewById(R.id.brandName);
         modelTitle = itemView.findViewById(R.id.modelName);
         startDate = itemView.findViewById(R.id.startdate_txt);
@@ -25,7 +23,6 @@ public class BookingViewHolder extends RecyclerView.ViewHolder {
         startTime = itemView.findViewById(R.id.starttime_txt);
         endTime = itemView.findViewById(R.id.endtime_txt);
         priceTag = itemView.findViewById(R.id.price_txt);
-        viewBtn = itemView.findViewById(R.id.bookviewbtn);
         carImage =  itemView.findViewById(R.id.carImg);
     }
 }
