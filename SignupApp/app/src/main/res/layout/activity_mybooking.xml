@@ -17,12 +17,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:contentDescription="fpbackbutton"
-                android:src="@drawable/ic_baseline_arrow_back_24" />
-
             <TextView
                 android:id="@+id/eptitle"
                 android:layout_width="match_parent"
@@ -30,7 +24,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="center"
-                android:text="settings"
+                android:text="Bookings"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:textSize="30sp"
@@ -41,7 +35,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/myrecyclerview2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"/>
 
 
     </LinearLayout>

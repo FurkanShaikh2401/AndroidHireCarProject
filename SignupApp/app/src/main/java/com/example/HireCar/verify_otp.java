@@ -298,7 +298,8 @@ public class verify_otp extends AppCompatActivity {
         data.put("full name", L_name);
         data.put("moblie", "+91"+L_mobile1);
         data.put("is_admin","0");
-        data.put("DL number", "GJ01" + L_dlnumber);
+        data.put("DL number", L_dlnumber);
+        data.put("is_verify","false");
 
         data.put("DL_photo", CarUri);
         firebaseFirestore.collection("users").document(authResult.getUser().getUid()).set(data)

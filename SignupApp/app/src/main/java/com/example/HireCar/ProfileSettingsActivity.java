@@ -2,6 +2,7 @@ package com.example.HireCar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.ProxyFileDescriptorCallback;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,12 +19,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ProfileSettingsActivity extends AppCompatActivity {
 
-    ImageView ProfileManageBtn, MyBookingBtn, faqsBtn, policyBtn, cpBtn, LogoutBtn;
+    ImageView ProfileManageBtn, MyBookingBtn, faqsBtn, policyBtn, LogoutBtn;
 
     TextView UserName,UserEmail,UserPhone;
 
     FirebaseAuth mAuth;
-//    String userE,userp,userN;
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ProfileSettingsActivity.this, homepage.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +40,6 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         MyBookingBtn = findViewById(R.id.navigate_mybooking);
         faqsBtn = findViewById(R.id.navigate_faq);
         policyBtn = findViewById(R.id.navigate_policy);
-        cpBtn = findViewById(R.id.navigate_cp);
         LogoutBtn = findViewById(R.id.navigate_logout);
 
         UserName=findViewById(R.id.userName);
@@ -42,15 +47,8 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         UserPhone=findViewById(R.id.userPhone);
 
         mAuth=FirebaseAuth.getInstance();
-////        userE= mAuth.getCurrentUser().getEmail();
-//        userp= mAuth.getCurrentUser().getPhoneNumber();
-////        userN= mAuth.getCurrentUser().getDisplayName();
+
         userDetails();
-//        Toast.makeText(this, "User phone : "+userp, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, "User Email : "+userE, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, "User Name : "+userN, Toast.LENGTH_SHORT).show();
-
-
         // setting profile manage
         ProfileManageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,16 +76,6 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(ProfileSettingsActivity.this, faqs.class);
                 intent3.setFlags(intent3.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent3);
-            }
-        });
-
-        // setting change password activity
-        cpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent5 = new Intent(ProfileSettingsActivity.this, change_password.class);
-                intent5.setFlags(intent5.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent5);
             }
         });
 

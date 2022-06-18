@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin_main"
+    tools:context=".admin_home"
     android:background="@color/colorSecondaryPink"
     android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
     android:padding="20dp">
@@ -138,7 +138,7 @@
                     android:layout_marginLeft="14dp"
                     android:layout_gravity="center_vertical"
                     android:contentDescription="@string/imagedesc"
-                    android:src="@drawable/ic_baseline_location_on_24" />
+                    android:src="@drawable/locations_icon" />
 
                 <TextView
                     android:layout_width="280dp"

@@ -49,7 +49,7 @@ public class EditLocation extends AppCompatActivity {
         Location_name.setText(getIntent().getStringExtra("LocName"));
 
         getLocName = getIntent().getStringExtra("LocName");
-        Toast.makeText(EditLocation.this, "Location is: " + getLocName, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(EditLocation.this, "Location is: " + getLocName, Toast.LENGTH_SHORT).show();
 
 //        if(getLocName.equals("edit")){
             editBtn.setOnClickListener(new View.OnClickListener() {

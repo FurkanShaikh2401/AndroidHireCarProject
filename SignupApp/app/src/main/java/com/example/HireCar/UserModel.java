@@ -1,18 +1,27 @@
 package com.example.HireCar;
 
 public class UserModel {
-    String DL_number, DL_photo, email, fullname, is_admin, mobile;
+    String DL_number, DL_photo, email, fullname, is_admin, mobile, is_verify;
 
     public UserModel() {
     }
 
-    public UserModel(String DL_number, String DL_photo, String email, String fullname, String is_admin, String mobile) {
+    public UserModel(String DL_number, String DL_photo, String email, String fullname, String is_admin, String mobile, String is_verify) {
         this.DL_number = DL_number;
         this.DL_photo = DL_photo;
         this.email = email;
         this.fullname = fullname;
         this.is_admin = is_admin;
         this.mobile = mobile;
+        this.is_verify = is_verify;
+    }
+
+    public String getIs_verify() {
+        return is_verify;
+    }
+
+    public void setIs_verify(String is_verify) {
+        this.is_verify = is_verify;
     }
 
     public String getDL_number() {

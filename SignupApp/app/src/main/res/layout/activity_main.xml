@@ -133,34 +133,6 @@
                         android:textSize="15dp"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/pwd"
-                    app:startIconDrawable="@drawable/padlock"
-                    android:textColorHint="@color/colorDarkPink"
-                    app:endIconMode="password_toggle"
-                    app:endIconTint="@color/colorDarkPink"
-                    app:hintTextColor="@color/colorDarkPink"
-                    app:startIconTint="@color/colorDarkPink"
-                    app:boxStrokeWidthFocused="2dp"
-                    app:boxStrokeColor="@color/colorDarkPink"
-                    android:layout_marginTop="5dp"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="15"
-                    app:helperText="*Required">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/LoginPassword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/oxygen"
-                        android:inputType="textPassword"
-                        android:maxLength="15"
-                        android:textSize="15dp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -176,9 +148,8 @@
                     app:hintTextColor="@color/colorDarkPink"
                     app:startIconTint="@color/colorDarkPink"
                     android:layout_marginTop="5dp"
-                    app:counterMaxLength="11"
+                    app:counterMaxLength="15"
                     app:counterEnabled="true"
-                    app:prefixText="GJ01"
                     app:prefixTextColor="@color/colorDarkPink"
                     app:helperText="*Required">
 
@@ -187,8 +158,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/oxygen"
-                        android:inputType="number"
-                        android:maxLength="11"
+                        android:inputType="text"
+                        android:maxLength="15"
                         android:textSize="15dp"/>
 
                 </com.google.android.material.textfield.TextInputLayout>

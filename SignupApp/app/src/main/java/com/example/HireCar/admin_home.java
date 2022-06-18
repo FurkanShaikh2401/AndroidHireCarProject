@@ -19,7 +19,7 @@ public class admin_home extends AppCompatActivity {
     TextView AdminName,AdminEmail;
     FirebaseAuth mAuth;
 
-    ImageView viewUsers,viewLocatins,viewCar, viewBookings;
+    ImageView viewUsers,viewLocatins,viewCar, viewBookings,viewLogout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,20 @@ public class admin_home extends AppCompatActivity {
         viewUsers = findViewById(R.id.navigate_users);
         viewLocatins =findViewById(R.id.navigate_locations);
         viewBookings = findViewById(R.id.navigate_bookings);
+        viewLogout =findViewById(R.id.navigate_logout);
         AdminDetails();
+
+        viewLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth mAuth;
+                mAuth=FirebaseAuth.getInstance();
+                mAuth.signOut();
+                Intent intent_signout=new Intent(admin_home.this,LoginActivity.class);
+                intent_signout.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent_signout);
+            }
+        });
 
         viewUsers.setOnClickListener(new View.OnClickListener() {
             @Override

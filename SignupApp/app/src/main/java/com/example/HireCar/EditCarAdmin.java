@@ -107,34 +107,34 @@ public class EditCarAdmin extends AppCompatActivity {
         adapterItems = new ArrayAdapter<String>(this, R.layout.list_item,cate);
         CateType.setAdapter(adapterItems);
 
-        Toast.makeText(this, "id: "+ getIntent().getStringExtra("carid"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "regno: "+ getIntent().getStringExtra("regno"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "brandname: "+ getIntent().getStringExtra("brandname"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "modelname: "+ getIntent().getStringExtra("modelname"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "fuel: "+ getIntent().getStringExtra("fuel"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "trans: "+ getIntent().getStringExtra("trans"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "cap: "+ getIntent().getStringExtra("cap"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "cost: "+ getIntent().getStringExtra("cost"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "catname: "+ getIntent().getStringExtra("catname"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "avlflag: "+ getIntent().getStringExtra("avlflag"), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "carimage: "+ getIntent().getStringExtra("carimage"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "id: "+ getIntent().getStringExtra("carid"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "regno: "+ getIntent().getStringExtra("regno"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "brandname: "+ getIntent().getStringExtra("brandname"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "modelname: "+ getIntent().getStringExtra("modelname"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "fuel: "+ getIntent().getStringExtra("fuel"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "trans: "+ getIntent().getStringExtra("trans"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "cap: "+ getIntent().getStringExtra("cap"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "cost: "+ getIntent().getStringExtra("cost"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "catname: "+ getIntent().getStringExtra("catname"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "avlflag: "+ getIntent().getStringExtra("avlflag"), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "carimage: "+ getIntent().getStringExtra("carimage"), Toast.LENGTH_SHORT).show();
 
         setUpImagePickerCar();
         cheData();
     }
-
-    public void setdata(){
-        FirebaseFirestore fd=FirebaseFirestore.getInstance();
-        fd.collection("Cars").document(getIntent().getStringExtra("carid")).get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-
-
-                    }
-                });
-
-    }
+//
+//    public void setdata(){
+//        FirebaseFirestore fd=FirebaseFirestore.getInstance();
+//        fd.collection("Cars").document(getIntent().getStringExtra("carid")).get()
+//                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+//
+//
+//                    }
+//                });
+//
+//    }
 
 
     public void setUpImagePickerCar(){
@@ -219,7 +219,7 @@ public class EditCarAdmin extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         CarUriString=uri.toString();
                         edit_data(CarUriString);
-                        Toast.makeText(EditCarAdmin.this, "---"+CarUriString, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(EditCarAdmin.this, "---"+CarUriString, Toast.LENGTH_SHORT).show();
 
                     }
                 });

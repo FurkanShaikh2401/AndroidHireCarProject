@@ -14,10 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -26,14 +29,13 @@ import java.util.Map;
 public class BookingSummaryActivity extends AppCompatActivity {
 
     ImageView back_to_findcar_btn;
-    Button payment_btn ;
-    TextView start_date, end_date, start_time, end_time, pickuploc, droploc, baseFair, dpFair, refundableFair, totalFair, duration;
+    Button payment_btn;
+    TextView model_name, start_date, end_date, start_time, end_time, pickuploc, droploc, baseFair, dpFair, refundableFair, totalFair, duration;
     String days, hours;
     HashMap<String, String> CarIds;
     CheckBox TestCheckBox;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth;
-    String brandName, modelName, carImage;
 
 
     @Override
@@ -54,59 +56,21 @@ public class BookingSummaryActivity extends AppCompatActivity {
         refundableFair = findViewById(R.id.bs_rfd_price);
         totalFair = findViewById(R.id.bs_total_price);
         payment_btn = findViewById(R.id.payment_btn);
+        model_name = findViewById(R.id.modelTag);
 
+        CarIds = (HashMap<String, String>) getIntent().getSerializableExtra("carids");
 
-        CarIds = (HashMap<String, String>)getIntent().getSerializableExtra("carids");
-
-        TestCheckBox = (CheckBox)findViewById(R.id.tandcck);
+        TestCheckBox = (CheckBox) findViewById(R.id.tandcck);
         payment_btn.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
-        Log.i("user",  mAuth.getCurrentUser().getUid().toString());
-        Toast.makeText(getApplicationContext(), "brandName: " +
-                getIntent().getStringExtra("brandName"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "modelName: " +
-                getIntent().getStringExtra("modelName"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "FuelName: " +
-                getIntent().getStringExtra("FuelTitle"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "TransmissionMode: " +
-                getIntent().getStringExtra("TransmissionTitle"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "Capcity: " +
-                getIntent().getStringExtra("CapacityTitle"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "Price: " +
-                getIntent().getStringExtra("PriceTitle"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "Pickup: " +
-                getIntent().getStringExtra("PickUpLoc"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "Drop: " +
-                getIntent().getStringExtra("DropLoc"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "StartDate: " +
-                getIntent().getStringExtra("Start_Date"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "EndDate: " +
-                getIntent().getStringExtra("End_Date"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "StartTime: " +
-                getIntent().getStringExtra("Start_Time"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "EndTime: " +
-                getIntent().getStringExtra("End_Time"), Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getApplicationContext(), "Link: " +
-                getIntent().getStringExtra("image"), Toast.LENGTH_SHORT).show();
-
+        Log.i("user", mAuth.getCurrentUser().getUid().toString());
 
 
         days = getIntent().getStringExtra("finaldays");
         hours = getIntent().getStringExtra("finalhours");
 
+        model_name.setText(getIntent().getStringExtra("modelName"));
         pickuploc.setText(getIntent().getStringExtra("PickUpLoc"));
         droploc.setText(getIntent().getStringExtra("DropLoc"));
         start_date.setText(getIntent().getStringExtra("Start_Date"));
@@ -114,11 +78,11 @@ public class BookingSummaryActivity extends AppCompatActivity {
         start_time.setText(getIntent().getStringExtra("Start_Time"));
         end_time.setText(getIntent().getStringExtra("End_Time"));
 
-        if(hours.equals(0)){
-            duration.setText("Duration: "+days);
-        }
-        else {
-            duration.setText("Duration: "+days+"days "+hours+"hours");
+
+        if (hours.equals(0)) {
+            duration.setText("Duration: " + days);
+        } else {
+            duration.setText("Duration: " + days + "days " + hours + "hours");
         }
 
 //        Intent intent = getIntent();
@@ -128,23 +92,23 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
 
         // initializing and setting the onClickListener
-        back_to_findcar_btn = findViewById(R.id.bs_back_btn);
-        back_to_findcar_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(BookingSummaryActivity.this, FindCarActivity.class));
-            }
-        });
 
-        TestCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-                if ( isChecked )
-                {
-                    payment_btn.setVisibility(View.VISIBLE);
-                }
-                else{
+
+        TestCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    db.collection("users").document(mAuth.getCurrentUser().getUid())
+                            .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.getResult().get("is_verify").equals("true")) {
+                                payment_btn.setVisibility(View.VISIBLE);
+                            } else {
+                                Toast.makeText(BookingSummaryActivity.this, "To book car you have to become verified User.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
                     payment_btn.setVisibility(View.GONE);
                 }
             }
@@ -164,7 +128,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
                 //userid
                 //carid
 
-                for(Map.Entry<String, String> entry: CarIds.entrySet()) {
+                for (Map.Entry<String, String> entry : CarIds.entrySet()) {
 
                     // if give value is equal to value from entry
                     // print the corresponding key
@@ -193,7 +157,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
 //                booking.put("car_id", car_id[0].toString());
 //                Log.i("passed", car_id[0].toString());
 
-            db.collection("Cars").document(car_id[0]).update("available_flag","false");
+                db.collection("Cars").document(car_id[0]).update("available_flag", "false");
 
                 // Add a new document with a generated ID
                 db.collection("Booking")
@@ -210,7 +174,7 @@ public class BookingSummaryActivity extends AppCompatActivity {
                                 Log.i("error", e.toString());
                             }
                         });
-                Toast.makeText(BookingSummaryActivity.this, "Payment is successfull", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookingSummaryActivity.this, "Booked is done", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), MyBookingActivity.class);
                 intent.putExtra("brandName", getIntent().getStringExtra("brandName"));
                 intent.putExtra("modelName", getIntent().getStringExtra("modelName"));
@@ -234,20 +198,20 @@ public class BookingSummaryActivity extends AppCompatActivity {
         int hourcost;
         int cost = Integer.parseInt(getIntent().getStringExtra("Cost"));
 
-        perhourcost = cost/24;
+        perhourcost = cost / 24;
         hourcost = perhourcost * Integer.parseInt(hours);
         calTotalCost = (cost * Integer.parseInt(days)) + hourcost;
 
         dpFair.setText("800");
         refundableFair.setText("2500");
-        baseFair.setText("Rs."+String.valueOf(calTotalCost));
+        baseFair.setText("Rs." + String.valueOf(calTotalCost));
 
         totalAmount = calTotalCost + Integer.parseInt(String.valueOf(dpFair.getText())) + Integer.parseInt(String.valueOf(refundableFair.getText()));
         dpFair.setText("Rs.800");
         refundableFair.setText("Rs.2500");
         totalFair.setText(String.valueOf(totalAmount));
         totalFair.setText(String.valueOf(totalAmount));
-        totalFair.setText("Rs."+String.valueOf(totalAmount));
+        totalFair.setText("Rs." + String.valueOf(totalAmount));
     }
 
 }
